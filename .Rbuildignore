@@ -1,6 +1,4 @@
-^README\.Rmd$
-^LICENSE\.md$
 ^tacApp\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
 ^app\.R$
-^rsconnect$
