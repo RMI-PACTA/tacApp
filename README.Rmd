@@ -13,33 +13,49 @@ knitr::opts_chunk$set(
 )
 ```
 
-# tacApp
+## Power company assessment
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of tacApp is to help you track change in the production capacity of power plants
-of companies in the power sector.
 
-## Installation
+### Goal
 
-You can install the development version of tacApp from [GitHub](https://github.com/) with:
+The tacApp application helps you analyze changes in the power sector
+between two time periods.
 
-``` r
-# install.packages("devtools")
-devtools::install_github("2DegreesInvesting/tacApp")
+### Inputs and outputs
+
+* You input a dataset, and select a technology and company.
+
+* The application outputs a summary of the _real_ and _virtual_ change, and
+shows a breakdown of changes as a plot and as a downloadable table.
+
+A _real_ change is an increase or decrease in the production capacity. A
+_virtual_ change is a change not in the production capacity but in the ownership
+of the asset.
+
+## Usage
+
+Browse to <https://twodii.shinyapps.io/tacApp/> and follow the prompts.
+
+## Devlelopment
+
+1. Clone this repo.
+
+```bash
+git clone https://github.com/2DegreesInvesting/tacApp
+cd tacApp
 ```
 
-## Example
+2. Load the code.
 
-```{r example}
-library(tacApp)
-
-if (interactive()) {
-  run_app()
-}
+```r
+devtools::load_all()
 ```
 
-## Related work
+3. Run the app.
 
-https://github.com/2DegreesInvesting/plots.impact
+```r
+run_app()
+```
