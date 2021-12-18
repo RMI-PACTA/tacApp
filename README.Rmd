@@ -35,6 +35,14 @@ A _real_ change is an increase or decrease in the production capacity. A
 _virtual_ change is a change not in the production capacity but in the ownership
 of the asset.
 
+### Data
+
+The data is private:
+
+* Users may get it from Asset Resolution.
+* Developers may get it from
+<https://github.com/2DegreesInvesting/tacAppPrivateData>.
+
 ## Usage
 
 Browse to <https://twodii.shinyapps.io/tacApp/> and follow the prompts.
