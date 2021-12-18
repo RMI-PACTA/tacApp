@@ -1,5 +1,5 @@
 private_path <- function(...) {
-  system.file("extdata", "private", ..., package = "plots.tac.clean")
+  system.file("extdata", "private", ..., package = "tacAppPrivateData")
 }
 
 #' Match resolution of RStudio's viewer panel
