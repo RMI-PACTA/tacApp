@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_app.R
 \name{run_app}
 \alias{run_app}
-\title{tacApp app}
+\title{Run the tacApp}
 \usage{
 run_app()
 }
@@ -10,7 +10,7 @@ run_app()
 Called for its side effect.
 }
 \description{
-tacApp app
+Run the tacApp
 }
 \examples{
 if (interactive()) {
