@@ -1,4 +1,4 @@
 library(testthat)
-library(plots.tac.clean)
+library(tacApp)
 
-test_check("plots.tac.clean")
+test_check("tacApp")
