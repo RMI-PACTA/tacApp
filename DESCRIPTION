@@ -7,7 +7,7 @@ Authors@R: c(
     person("2 Degrees Investing Initiative", , , "contact@2degrees-investing.org", role = c("cph", "fnd"))
   )
 Description: For more information visit <https://2degrees-investing.org/>.
-License: file LICENSE
+License: MIT + file LICENSE
 Imports: 
     dplyr,
     DT,
