@@ -1,17 +1,30 @@
-Package: tacApp
-Title: A Shiny App to Assess Company Power
+Package: plots.tac.clean
+Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: c(
     person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "ctr", "cre"),
            comment = c(ORCID = "0000-0002-1986-7988")),
     person("2 Degrees Investing Initiative", , , "contact@2degrees-investing.org", role = c("cph", "fnd"))
   )
-Description: A shiny app to assess company power.
-License: MIT + file LICENSE
+Description: For more information visit <https://2degrees-investing.org/>.
+License: file LICENSE
 Imports: 
-    shiny
+    dplyr,
+    DT,
+    ggplot2,
+    magrittr,
+    pkgload,
+    r2dii.plot,
+    readr,
+    rlang (>= 0.4.11),
+    shiny,
+    tibble,
+    tidyr
 Suggests: 
-    pkgload
+    here,
+    roxygen2,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
