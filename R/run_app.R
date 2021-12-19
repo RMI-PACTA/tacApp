@@ -69,11 +69,7 @@ run_app <- function() {
           subsidiary_company_id = as.integer(.data$subsidiary_company_id)
         )
     })
-    output$explore <- DT::renderDT(
-      caption = "Uploaded data.",
-      filter = "top",
-      raw_tweaked()
-    )
+    output$explore <- DT::renderDT(raw_tweaked(), filter = "top")
 
     observeEvent(input$upload, {
       updateSelectInput(
@@ -95,7 +91,7 @@ run_app <- function() {
     output$summary <- renderTable(summarize_change(data()))
     output$plot <- renderPlot(plot_techs(data()), res = match_rs())
 
-    output$table <- DT::renderDT(caption = "Breakdown of changes.", data())
+    output$table <- DT::renderDT(data())
     output$download <- download(data())
   }
 
