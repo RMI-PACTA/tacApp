@@ -18,7 +18,11 @@ run_app <- function() {
       tabPanel(
         label_find_id(),
         mainPanel(
-          fileInput("upload", "Upload a .csv file", accept = c(".csv", ".zip")),
+          fileInput(
+            "upload",
+            sprintf("Upload a file (%s)", toString(ext())),
+            accept = ext()
+          ),
           DT::DTOutput("explore")
         )
       ),
@@ -32,7 +36,7 @@ run_app <- function() {
           actionButton("go", "Analize", class = "btn-lg btn-success")
         ),
         mainPanel(
-          DT::DTOutput("summary"),
+          tableOutput("summary"),
           plotOutput("plot")
         )
       ),
@@ -53,6 +57,7 @@ run_app <- function() {
 
     raw_tweaked <- reactive({
       raw() %>%
+        # TODO: Test that technologies are actually lumped.
         # TODO: Use technology_lumped everywhere?
         dplyr::mutate(technology_lumped = .data$technology) %>%
         dplyr::relocate(.data$technology_lumped, company_types()) %>%
@@ -87,16 +92,10 @@ run_app <- function() {
       )
     })
 
-    output$summary <- DT::renderDT(
-      caption = "Summary.",
-      summarize_change(data())
-    )
+    output$summary <- renderTable(summarize_change(data()))
     output$plot <- renderPlot(plot_techs(data()), res = match_rs())
 
-    output$table <- DT::renderDT(
-      caption = "Breakdown of changes.",
-      data()
-    )
+    output$table <- DT::renderDT(caption = "Breakdown of changes.", data())
     output$download <- download(data())
   }
 
