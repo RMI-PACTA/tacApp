@@ -8,7 +8,7 @@
 #'   run_app()
 #' }
 run_app <- function() {
-  op <- options(shiny.maxRequestSize = 1000 * 1024 ^ 2)
+  op <- options(shiny.maxRequestSize = 500 * 1024 ^ 2)
   on.exit(options(op), add = TRUE, after = FALSE)
 
   ui <- fluidPage(
@@ -22,6 +22,10 @@ run_app <- function() {
             "upload",
             sprintf("Upload a file (%s)", toString(ext())),
             accept = ext()
+          ),
+          a(
+            "Hint: Compress a large .csv to .zip.",
+            href = "https://archive.r-lib.org/"
           ),
           DT::DTOutput("explore")
         )
