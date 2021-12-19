@@ -20,12 +20,15 @@ prep_techs <- function(data,
   company_type <- match.arg(company_type)
   stopifnot(is.numeric(company_id))
 
-  data$technology <- tolower(data$technology)
-  data <- data[data$technology == technology, , drop = FALSE]
-  abort_if_company_id_is_invalid(data, company_type, company_id)
+  out <- data %>%
+    mutate(technology = tolower(.data$technology)) %>%
+    lump_technology() %>%
+    filter(.data$technology == .env$technology)
+
+  out %>% abort_if_company_id_is_invalid(company_type, company_id)
 
   out <- lapply(technology, \(.x) prep1tech(
-    data,
+    out,
     company_id = company_id,
     technology = .x,
     company_type = company_type
@@ -60,10 +63,7 @@ prep1tech <- function(data,
                       company_id,
                       technology,
                       company_type) {
-  data <- data %>% mutate(technology = tolower(technology))
-
   picked <- data %>%
-    lump_technology() %>%
     filter(.data[[company_type]] == company_id) %>%
     filter(.data$dual == 1)
 
