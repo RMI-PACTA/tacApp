@@ -8,7 +8,7 @@
 #'   run_app()
 #' }
 run_app <- function() {
-  op <- options(shiny.maxRequestSize = 500 * 1024 ^ 2)
+  op <- options(shiny.maxRequestSize = 1000 * 1024 ^ 2)
   on.exit(options(op), add = TRUE, after = FALSE)
 
   ui <- fluidPage(
@@ -18,7 +18,7 @@ run_app <- function() {
       tabPanel(
         label_find_id(),
         mainPanel(
-          fileInput("upload", "Upload a .csv file", accept = ".csv"),
+          fileInput("upload", "Upload a .csv file", accept = c(".csv", ".zip")),
           DT::DTOutput("explore")
         )
       ),
