@@ -61,14 +61,10 @@ run_app <- function() {
 
     raw_tweaked <- reactive({
       raw() %>%
-        # TODO: Test that technologies are actually lumped.
-        # TODO: Use technology_lumped everywhere?
-        dplyr::mutate(technology_lumped = .data$technology) %>%
-        dplyr::relocate(.data$technology_lumped, company_types()) %>%
-        dplyr::mutate(technology_lumped = tolower(.data$technology_lumped)) %>%
+        dplyr::relocate(.data$technology, company_types()) %>%
         lump_technology() %>%
         dplyr::mutate(
-          technology_lumped = factor(.data$technology_lumped),
+          technology = factor(.data$technology),
           target_company_id = as.integer(.data$target_company_id),
           subsidiary_company_id = as.integer(.data$subsidiary_company_id)
         )
