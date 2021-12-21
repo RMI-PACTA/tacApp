@@ -8,9 +8,6 @@
 #'   run_app()
 #' }
 run_app <- function() {
-  op <- options(shiny.maxRequestSize = 500 * 1024 ^ 2)
-  on.exit(options(op), add = TRUE, after = FALSE)
-
   ui <- fluidPage(
     tabsetPanel(
       id = "tabs",
