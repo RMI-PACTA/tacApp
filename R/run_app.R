@@ -48,13 +48,6 @@ run_app <- function() {
     tweaked <- reactive(tweak(raw()))
     output$explore <- renderDT(tweaked(), filter = "top")
 
-    observeEvent(input$upload, {
-      updateSelectInput(
-        inputId = "technology",
-        choices = unique(tweaked()$technology)
-      )
-    })
-
     data <- eventReactive(input$go, {
       req(input$company_id)
 
