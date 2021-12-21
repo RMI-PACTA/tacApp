@@ -1,0 +1,11 @@
+test_that("getters have not changed", {
+  getters <- list(
+    company_types(),
+    label_find_id(),
+    ext(),
+    renewables(),
+    categories_order(),
+    techs()
+  )
+  expect_snapshot(getters)
+})

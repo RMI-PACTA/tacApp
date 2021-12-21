@@ -88,36 +88,3 @@ lump_technology <- function(data) {
       TRUE ~ .data$technology
     ))
 }
-
-renewables <- function() {
-  c(
-    "solar pv",
-    "solar thermal",
-    "solar cpv",
-    "wind onshore",
-    "wind offshore",
-    "biogas",
-    "biomass",
-    "geothermal"
-  )
-}
-
-categories_order <- function() {
-  c(
-    "before",
-    "add",
-    "buy",
-    "ramp up",
-    "remove",
-    "sell",
-    "ramp down",
-    "untraceable",
-    "unidentified",
-    "too late",
-    "after"
-  )
-}
-
-techs <- function() {
-  c("coal", "hydro", "gas", "renewables", "oil", "nuclear")
-}
