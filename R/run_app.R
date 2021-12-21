@@ -17,18 +17,7 @@ run_app <- function() {
 
       tabPanel(
         label_find_id(),
-        mainPanel(
-          fileInput(
-            "upload",
-            sprintf("Upload a file (%s)", toString(ext())),
-            accept = ext()
-          ),
-          a(
-            "Hint: Compress a large .csv to .zip.",
-            href = "https://archive.r-lib.org/"
-          ),
-          DTOutput("explore")
-        )
+        mainPanel(DTOutput("explore"))
       ),
 
       tabPanel(
@@ -55,8 +44,8 @@ run_app <- function() {
 
   server <- function(input, output, session) {
     raw <- reactive({
-      req(input$upload)
-      read_csv(input$upload$datapath, show_col_types = FALSE)
+      path <- private_path("all_technologies.csv")
+      read_csv(path, show_col_types = FALSE, lazy = TRUE)
     })
 
     tweaked <- reactive(tweak(raw()))
