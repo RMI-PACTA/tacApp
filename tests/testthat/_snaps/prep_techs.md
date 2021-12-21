@@ -15,3 +15,7 @@
       7 coal           7 unidentified unknown  12.2  12.1 -0.179
       8 coal           8 after        total    12.1   0   12.1  
 
+# with invalid id errors gracefully
+
+    `target_company_id = 1` is invalid. Do you need to go back to the tab 'Find ID'?
+
