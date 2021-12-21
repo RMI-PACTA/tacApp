@@ -21,8 +21,6 @@ prep_raw <- function(data,
   stopifnot(is.numeric(company_id))
 
   out <- data %>%
-    mutate(technology = tolower(.data$technology)) %>%
-    lump_technology() %>%
     filter(.data$technology == .env$technology)
 
   out %>% abort_if_company_id_is_invalid(company_type, company_id)
