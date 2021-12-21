@@ -13,7 +13,7 @@
 #' prepare(data)
 #' }
 #' @noRd
-prep_techs <- function(data,
+prep_raw <- function(data,
                        technology,
                        company_id,
                        company_type = company_types()) {

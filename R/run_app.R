@@ -80,7 +80,7 @@ run_app <- function() {
 
     data <- eventReactive(input$go, {
       req(input$company_id)
-      prep_techs(
+      prep_raw(
         raw(),
         company_id = input$company_id,
         company_type = input$company_type,
