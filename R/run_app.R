@@ -74,7 +74,7 @@ run_app <- function() {
     observeEvent(input$upload, {
       updateSelectInput(
         inputId = "technology",
-        choices = unique(raw_tweaked()$technology_lumped)
+        choices = unique(raw_tweaked()$technology)
       )
     })
 
