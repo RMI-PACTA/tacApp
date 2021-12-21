@@ -1,6 +1,6 @@
 # path <- private_path("tac-tracking-asset-level-changes.csv")
 # data <- readr::read_csv(path, show_col_types = FALSE)
-# out <- prep_techs(data, company_id = 6736)
+# out <- prep_raw(data, company_id = 6736)
 # summarize_change(out)
 summarize_change <- function(data) {
   split(data, data$technology) %>%
