@@ -89,7 +89,7 @@ run_app <- function() {
     })
 
     output$summary <- renderTable(summarize_change(data()))
-    output$plot <- renderPlot(plot_techs(data()), res = match_rs())
+    output$plot <- renderPlot(plot_techs(data()), res = match_rstudio())
 
     output$table <- DT::renderDT(data())
     output$download <- download(data())
