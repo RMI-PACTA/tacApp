@@ -21,9 +21,8 @@ prep_raw <- function(data,
   stopifnot(is.numeric(company_id))
 
   out <- data %>%
-    filter(.data$technology == .env$technology)
-
-  out %>% abort_if_company_id_is_invalid(company_type, company_id)
+    filter(.data$technology == .env$technology) %>%
+    abort_if_company_id_is_invalid(company_type, company_id)
 
   out <- lapply(technology, \(.x) prep1tech(
     out,
