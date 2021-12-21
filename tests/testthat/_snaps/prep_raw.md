@@ -17,5 +17,5 @@
 
 # with invalid id errors gracefully
 
-    `target_company_id = 1` is invalid. Do you need to go back to the tab 'Explore companies'?
+    `target_company_id = 1` is invalid. Do you need to go back to the tab 'Explore'?
 

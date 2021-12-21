@@ -7,7 +7,7 @@
       [1] "target_company_id"     "subsidiary_company_id"
       
       [[2]]
-      [1] "Explore companies"
+      [1] "Explore"
       
       [[3]]
       [1] ".csv" ".zip"
