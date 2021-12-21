@@ -9,8 +9,8 @@ private_path <- function(...) {
 #' https://mastering-shiny.org/basic-ui.html#plots
 #'
 #' @examples
-#' match_rs()
+#' match_rstudio()
 #' @noRd
-match_rs <- function() {
+match_rstudio <- function() {
   96
 }
