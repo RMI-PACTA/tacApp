@@ -59,22 +59,13 @@ run_app <- function() {
       read_csv(input$upload$datapath, show_col_types = FALSE)
     })
 
-    raw_tweaked <- reactive({
-      raw() %>%
-        dplyr::relocate(.data$technology, company_types()) %>%
-        lump_technology() %>%
-        dplyr::mutate(
-          technology = factor(.data$technology),
-          target_company_id = as.integer(.data$target_company_id),
-          subsidiary_company_id = as.integer(.data$subsidiary_company_id)
-        )
-    })
-    output$explore <- DT::renderDT(raw_tweaked(), filter = "top")
+    tweaked <- reactive(tweak(raw()))
+    output$explore <- DT::renderDT(tweaked(), filter = "top")
 
     observeEvent(input$upload, {
       updateSelectInput(
         inputId = "technology",
-        choices = unique(raw_tweaked()$technology)
+        choices = unique(tweaked()$technology)
       )
     })
 
