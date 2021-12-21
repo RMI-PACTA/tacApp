@@ -89,7 +89,7 @@ prepare_data_waterfall <- function(data,
       type = "total"
     )
 
-  data_portfolio <- dplyr::bind_rows(data_portfolio, total_before, total_after) %>%
+  data_portfolio <- bind_rows(data_portfolio, total_before, total_after) %>%
     arrange(factor(.data$category, levels = categories_order)) %>%
     mutate(value = .data$value / 10^3)
 

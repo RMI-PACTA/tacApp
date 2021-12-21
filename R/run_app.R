@@ -27,7 +27,7 @@ run_app <- function() {
             "Hint: Compress a large .csv to .zip.",
             href = "https://archive.r-lib.org/"
           ),
-          DT::DTOutput("explore")
+          DTOutput("explore")
         )
       ),
 
@@ -47,7 +47,7 @@ run_app <- function() {
 
       tabPanel(
         "Download",
-        DT::DTOutput("table"),
+        DTOutput("table"),
         downloadButton("download", "Download")
       )
     )
@@ -60,7 +60,7 @@ run_app <- function() {
     })
 
     tweaked <- reactive(tweak(raw()))
-    output$explore <- DT::renderDT(tweaked(), filter = "top")
+    output$explore <- renderDT(tweaked(), filter = "top")
 
     observeEvent(input$upload, {
       updateSelectInput(
@@ -83,7 +83,7 @@ run_app <- function() {
     output$summary <- renderTable(summarize_change(data()))
     output$plot <- renderPlot(plot_techs(data()), res = match_rstudio())
 
-    output$table <- DT::renderDT(data())
+    output$table <- renderDT(data())
     output$download <- download(data())
   }
 

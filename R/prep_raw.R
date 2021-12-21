@@ -33,7 +33,7 @@ prep_raw <- function(data,
   ))
 
   names(out) <- technology
-  out <- tibble::enframe(out, name = "technology")
+  out <- enframe(out, name = "technology")
   out <- tidyr::unnest(out, .data$value)
   out
 }

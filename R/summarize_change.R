@@ -1,11 +1,11 @@
 # path <- private_path("tac-tracking-asset-level-changes.csv")
-# data <- readr::read_csv(path, show_col_types = FALSE)
+# data <- read_csv(path, show_col_types = FALSE)
 # out <- prep_raw(data, company_id = 6736)
 # summarize_change(out)
 summarize_change <- function(data) {
   split(data, data$technology) %>%
     lapply(summarize1change) %>%
-    tibble::enframe(name = "technology") %>%
+    enframe(name = "technology") %>%
     tidyr::unnest(.data$value)
 }
 
@@ -14,12 +14,12 @@ summarize1change <- function(.x) {
 
   real_change <- .x %>%
     filter(.data$category %in% c("add", "remove", "ramp up", "ramp down")) %>%
-    dplyr::pull(.data$value) %>%
+    pull(.data$value) %>%
     sum(na.rm = TRUE)
 
   virtual_change <- .x %>%
     filter(.data$category %in% c("buy", "sell")) %>%
-    dplyr::pull(.data$value) %>%
+    pull(.data$value) %>%
     sum(na.rm = TRUE)
 
   percent_real <- 100 * real_change / total_change
