@@ -18,6 +18,7 @@ Imports:
     readr,
     rlang (>= 0.4.11),
     shiny,
+    tacAppPrivateData (>= 0.0.0.9000),
     tibble,
     tidyr
 Suggests: 

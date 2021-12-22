@@ -3,7 +3,7 @@ plot_waterfall <- function(data, type_order = NULL, type_colours = NULL) {
   type_colours <- type_colours %||% c("dark_blue", "orange", "green", "grey")
 
   r2dii_colours <- palette_colours() %>%
-    filter( .data$label %in% type_colours) %>%
+    filter(.data$label %in% type_colours) %>%
     arrange(factor(.data$label, levels = type_colours))
 
   ggplot(data, aes(category, fill = factor(type, levels = type_order))) +
@@ -14,12 +14,12 @@ plot_waterfall <- function(data, type_order = NULL, type_colours = NULL) {
     theme_2dii() +
     theme(axis.line.x = element_blank()) +
     theme(axis.ticks.x = element_blank()) +
-    theme(axis.title.y.left = element_text(margin = unit(c(0,0.4,0,0.4),"cm"))) +
-    theme(axis.title.y.right = element_text(margin = unit(c(0,0.4,0,0.4),"cm"))) +
+    theme(axis.title.y.left = element_text(margin = unit(c(0, 0.4, 0, 0.4), "cm"))) +
+    theme(axis.title.y.right = element_text(margin = unit(c(0, 0.4, 0, 0.4), "cm"))) +
     theme(legend.position = "bottom")
 }
 
-# styler:off
+# styler: off
 palette_colours <- function() {
   # From r2dii.plot:::palette_colours to avoid dependency on internal object
   tibble::tribble(

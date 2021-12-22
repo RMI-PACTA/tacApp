@@ -1,12 +1,13 @@
-# path <- private_path("tac-tracking-asset-level-changes.csv")
-# data <- read_csv(path, show_col_types = FALSE)
-# out <- prep_raw(data, company_id = 6736)
-# summarize_change(out)
+#' @examples
+#' data <- tweak(full())
+#' out <- prep_raw(data, company_id = 919, technology = "renewables")
+#' summarize_change(out)
+#' @noRd
 summarize_change <- function(data) {
   split(data, data$technology) %>%
     lapply(summarize1change) %>%
     enframe(name = "technology") %>%
-    tidyr::unnest(.data$value)
+    unnest(.data$value)
 }
 
 summarize1change <- function(.x) {
