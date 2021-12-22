@@ -57,6 +57,7 @@ prep1tech <- function(data,
     technology_filter = technology,
     portfolio_ids = unique(data$subsidiary_company_id),
     column_comp_id = "subsidiary_company_id",
+    # FIXME: This seems brittle
     column_before = "comp_cap_2018q4",
     column_after = "comp_cap_2020q3",
     categories_order = categories_order()
