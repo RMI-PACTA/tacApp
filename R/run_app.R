@@ -38,15 +38,7 @@ run_app <- function() {
 
   server <- function(input, output, session) {
     tweaked <- reactive(tweak(full()))
-    output$explore <- renderDT({
-      companies <- dplyr::select(
-        tweaked(),
-        .data$technology,
-        .data$target_company_id,
-        .data$subsidiary_company_id
-      )
-      companies
-    }, filter = "top")
+    output$explore <- renderDT(select_tech_and_id(tweaked()), filter = "top")
 
     data <- eventReactive(input$go, {
       req(input$company_id)
