@@ -23,14 +23,7 @@ categories_order <- function() {
 }
 
 techs <- function() {
-  c(
-    "coal",
-    "hydro",
-    "gas",
-    "renewables",
-    "oil",
-    "nuclear"
-  )
+  levels(full()$technology)
 }
 
 renewables <- function() {
