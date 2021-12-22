@@ -22,7 +22,7 @@ categories_order <- function() {
   )
 }
 
-techs <- function() {
+technologies <- function() {
   levels(full()$technology)
 }
 
