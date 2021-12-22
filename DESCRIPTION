@@ -4,6 +4,11 @@ Version: 0.0.0.9000
 Authors@R: c(
     person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "ctr", "cre"),
            comment = c(ORCID = "0000-0002-1986-7988")),
+    person("Souad", "Koliaï", , "souad@2degrees-investing.org", role = "aut"),
+    person("Monika", "Furdyna", , "monika.furdyna@gmail.com", role = "aut",
+           comment = c(ORCID = "0000-0002-3728-0646")),
+    person("Alex", "Axthelm", , "alex@2degrees-investing.org", role = c("aut", "ctr"),
+           comment = c(ORCID = "0000-0001-8579-8565")),
     person("2 Degrees Investing Initiative", , , "contact@2degrees-investing.org", role = c("cph", "fnd"))
   )
 Description: For more information visit <https://2degrees-investing.org/>.
