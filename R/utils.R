@@ -32,10 +32,5 @@ add_unit <- function(x, unit) {
 }
 
 select_tech_and_id <- function(data) {
-  select(
-    data,
-    .data$technology,
-    .data$target_company_id,
-    .data$subsidiary_company_id
-  )
+  select(data, .data$technology, matches("_company_"))
 }
