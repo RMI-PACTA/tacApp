@@ -1,5 +1,5 @@
 #' @examples
-#' data <- tweak(full())
+#' data <- full()
 #' out <- prep_raw(data, company_id = 919, technology = "renewables")
 #' summarize_change(out)
 #' @noRd

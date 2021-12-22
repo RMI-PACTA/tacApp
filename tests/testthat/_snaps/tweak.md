@@ -1,7 +1,7 @@
 # outputs the expected snapshot
 
     Code
-      tweak(full())
+      full()
     Output
       # A tibble: 163,520 x 32
          technology target_company_id subsidiary_company_id target_company_name       
