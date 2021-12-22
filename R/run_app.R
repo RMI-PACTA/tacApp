@@ -16,12 +16,12 @@ run_app <- function() {
         mainPanel(DTOutput("explore"))
       ),
       tabPanel(
-        "Analize",
+        "Analyze changes",
         sidebarPanel(
           selectInput("technology", "Technology", technologies()),
           selectInput("company_type", "Company type", choices = company_types()),
           numericInput("company_id", "Company ID", value = NA),
-          actionButton("go", "Analize", class = "btn-lg btn-success")
+          actionButton("go", "Analyze changes", class = "btn-lg btn-success")
         ),
         mainPanel(
           tableOutput("summary"),
@@ -29,9 +29,11 @@ run_app <- function() {
         )
       ),
       tabPanel(
-        "Download",
+        "Download results",
         DTOutput("table"),
-        downloadButton("download", "Download")
+        downloadButton(
+          "download", "Download results", class = "btn-lg btn-success"
+        )
       )
     )
   )

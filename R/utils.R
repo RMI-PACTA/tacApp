@@ -39,11 +39,15 @@ rename_summary <- function(data) {
   nms <- names(data)
   nms <- gsub("_", " ", nms)
   nms <- tools::toTitleCase(nms)
+  # styler: off
   nms <- case_when(
     grepl("Percent", nms) ~ add_unit(nms, "%"),
-    TRUE ~ add_unit(nms, "GW")
+    grepl("Change", nms)  ~ add_unit(nms, "GW"),
+    TRUE                  ~ nms
   )
-
+  # styler: on
+  nms <- gsub("Change ", "", nms)
+  nms <- gsub("Percent ", "", nms)
   names(data) <- nms
   data
 }

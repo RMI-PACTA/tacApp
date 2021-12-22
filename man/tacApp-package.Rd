@@ -4,9 +4,9 @@
 \name{tacApp-package}
 \alias{tacApp}
 \alias{tacApp-package}
-\title{tacApp: What the Package Does (One Line, Title Case)}
+\title{tacApp: An Application to Assess Company Power}
 \description{
-For more information visit <https://2degrees-investing.org/>.
+An application to assess company power.
 }
 \author{
 \strong{Maintainer}: Mauro Lepore \email{maurolepore@gmail.com} (\href{https://orcid.org/0000-0002-1986-7988}{ORCID}) [contractor]
