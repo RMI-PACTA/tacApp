@@ -11,6 +11,13 @@ For more information visit <https://2degrees-investing.org/>.
 \author{
 \strong{Maintainer}: Mauro Lepore \email{maurolepore@gmail.com} (\href{https://orcid.org/0000-0002-1986-7988}{ORCID}) [contractor]
 
+Authors:
+\itemize{
+  \item Souad Koliaï \email{souad@2degrees-investing.org}
+  \item Monika Furdyna \email{monika.furdyna@gmail.com} (\href{https://orcid.org/0000-0002-3728-0646}{ORCID})
+  \item Alex Axthelm \email{alex@2degrees-investing.org} (\href{https://orcid.org/0000-0001-8579-8565}{ORCID}) [contractor]
+}
+
 Other contributors:
 \itemize{
   \item 2 Degrees Investing Initiative \email{contact@2degrees-investing.org} [copyright holder, funder]

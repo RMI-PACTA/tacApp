@@ -3,7 +3,7 @@
     Code
       tweak(full())
     Output
-      # A tibble: 163,520 x 30
+      # A tibble: 163,520 x 32
          technology target_company_id subsidiary_company_id  SBTI CA100   market_cap
          <fct>                  <int>                 <int> <dbl> <dbl>        <dbl>
        1 hydro                 429218                429218    NA    NA           NA
@@ -16,7 +16,7 @@
        8 hydro                 429218                429218    NA    NA           NA
        9 renewables            429218                429218    NA    NA           NA
       10 renewables               919                194971    NA     1 533754000000
-      # ... with 163,510 more rows, and 24 more variables: company_status <chr>,
+      # ... with 163,510 more rows, and 26 more variables: company_status <chr>,
       #   state_owned_entity_type <lgl>, shares_weight <dbl>, source_id <dbl>,
       #   asset_name <chr>, start_year <dbl>, dual <dbl>, status_x <chr>,
       #   asset_location <chr>, comp_cap_2018q4 <dbl>, comp_cap_2018_actual <dbl>,
