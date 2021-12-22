@@ -10,8 +10,8 @@
       [1] "Explore"
       
       [[3]]
-      [1] "solar pv"      "solar thermal" "solar cpv"     "wind onshore" 
-      [5] "wind offshore" "biogas"        "biomass"       "geothermal"   
+      [1] "biogas"        "biomass"       "geothermal"    "solar_cpv"    
+      [5] "solar_pv"      "solar_thermal" "wind_offshore" "wind_onshore" 
       
       [[4]]
        [1] "before"       "add"          "buy"          "ramp up"      "remove"      
