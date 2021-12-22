@@ -3,7 +3,7 @@ company_types <- function() {
 }
 
 label_find_id <- function() {
-  "Explore"
+  "Explore companies"
 }
 
 categories_order <- function() {

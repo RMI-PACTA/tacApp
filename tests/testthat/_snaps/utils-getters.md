@@ -7,7 +7,7 @@
       [1] "target_company_id"     "subsidiary_company_id"
       
       [[2]]
-      [1] "Explore"
+      [1] "Explore companies"
       
       [[3]]
       [1] "biogas"        "biomass"       "geothermal"    "solar_cpv"    
