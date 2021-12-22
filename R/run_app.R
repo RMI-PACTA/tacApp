@@ -18,7 +18,7 @@ run_app <- function() {
       tabPanel(
         "Analize",
         sidebarPanel(
-          selectInput("technology", "Technology", techs()),
+          selectInput("technology", "Technology", technologies()),
           selectInput("company_type", "Company type", choices = company_types()),
           numericInput("company_id", "Company ID", value = NA),
           actionButton("go", "Analize", class = "btn-lg btn-success")

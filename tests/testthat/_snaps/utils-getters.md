@@ -19,7 +19,7 @@
       [11] "after"       
       
       [[5]]
-      [1] "coal"       "hydro"      "gas"        "renewables" "oil"       
-      [6] "nuclear"   
+      [1] "coal"       "gas"        "hydro"      "nuclear"    "ocean"     
+      [6] "oil"        "renewables"
       
 

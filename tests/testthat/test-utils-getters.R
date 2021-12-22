@@ -4,7 +4,7 @@ test_that("getters have not changed", {
     label_find_id(),
     renewables(),
     categories_order(),
-    techs()
+    technologies()
   )
   expect_snapshot(getters)
 })
