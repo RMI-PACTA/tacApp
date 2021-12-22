@@ -35,7 +35,7 @@ The data is private:
 
 Browse to <https://twodii.shinyapps.io/tacApp/> and follow the prompts.
 
-## Devlelopment
+## Development
 
 1.  Clone this repo.
 
