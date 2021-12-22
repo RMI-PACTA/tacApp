@@ -16,13 +16,7 @@ run_app <- function() {
         mainPanel(DTOutput("explore"))
       ),
       tabPanel(
-        "Analyze changes",
-        sidebarPanel(
-          selectInput("technology", "Technology", technologies()),
-          selectInput("company_type", "Company type", choices = company_types()),
-          numericInput("company_id", "Company ID", value = NA),
-          actionButton("go", "Analyze changes", class = "btn-lg btn-success")
-        ),
+        "View changes",
         mainPanel(
           tableOutput("summary"),
           plotOutput("plot")
@@ -32,7 +26,8 @@ run_app <- function() {
         "Download results",
         DTOutput("table"),
         downloadButton(
-          "download", "Download results", class = "btn-lg btn-success"
+          "download", "Download results",
+          class = "btn-lg btn-success"
         )
       )
     )
@@ -42,17 +37,16 @@ run_app <- function() {
 }
 
 server <- function(input, output, session) {
-  output$explore <- renderDT(select_tech_and_id(full()), filter = "top")
+  output$explore <- renderDT(
+    select_tech_and_id(full()),
+    filter = "top",
+    selection = list(mode = "single", selected = 1, target = "row")
+  )
 
-  data <- eventReactive(input$go, {
-    req(input$company_id)
+  row <- reactive(slice(full(), input$explore_rows_selected))
 
-    prep_raw(
-      full(),
-      company_id = input$company_id,
-      company_type = input$company_type,
-      technology = input$technology
-    )
+  data <- reactive({
+    prep_raw(full(), row())
   })
 
   output$summary <- renderTable(summarize_change(data()))
