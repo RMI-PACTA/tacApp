@@ -6,19 +6,6 @@ label_find_id <- function() {
   "Explore"
 }
 
-renewables <- function() {
-  c(
-    "biogas",
-    "biomass",
-    "geothermal",
-    "solar_cpv",
-    "solar_pv",
-    "solar_thermal",
-    "wind_offshore",
-    "wind_onshore"
-  )
-}
-
 categories_order <- function() {
   c(
     "before",
@@ -43,5 +30,18 @@ techs <- function() {
     "renewables",
     "oil",
     "nuclear"
+  )
+}
+
+renewables <- function() {
+  c(
+    "biogas",
+    "biomass",
+    "geothermal",
+    "solar_cpv",
+    "solar_pv",
+    "solar_thermal",
+    "wind_offshore",
+    "wind_onshore"
   )
 }
