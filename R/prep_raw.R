@@ -1,22 +1,10 @@
-#' Wrap all code
-#'
-#' @param data A dataframe.
-#' @param tech String. A technology.
-#' @param company_type String. A company type.
-#' @param company_id Number. A company id.
-#'
-#' @return A list with `data` and `plot` elements.
-#'
 #' @examples
-#' \donttest{
-#' data <- readr:read_csv("private/tac-tracking-asset-level-changes.csv")
-#' prepare(data)
-#' }
+#' prepare(full())
 #' @noRd
 prep_raw <- function(data,
-                       technology,
-                       company_id,
-                       company_type = company_types()) {
+                     technology,
+                     company_id,
+                     company_type = company_types()) {
   company_type <- match.arg(company_type)
   stopifnot(is.numeric(company_id))
 

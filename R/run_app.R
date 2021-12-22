@@ -11,12 +11,10 @@ run_app <- function() {
   ui <- fluidPage(
     tabsetPanel(
       id = "tabs",
-
       tabPanel(
         label_find_id(),
         mainPanel(DTOutput("explore"))
       ),
-
       tabPanel(
         "Analize",
         sidebarPanel(
@@ -30,7 +28,6 @@ run_app <- function() {
           plotOutput("plot")
         )
       ),
-
       tabPanel(
         "Download",
         DTOutput("table"),
@@ -40,12 +37,7 @@ run_app <- function() {
   )
 
   server <- function(input, output, session) {
-    raw <- reactive({
-      path <- private_path("all_technologies.csv")
-      read_csv(path, show_col_types = FALSE, lazy = TRUE)
-    })
-
-    tweaked <- reactive(tweak(raw()))
+    tweaked <- reactive(tweak(full()))
     output$explore <- renderDT(tweaked(), filter = "top")
 
     data <- eventReactive(input$go, {

@@ -6,7 +6,7 @@ label_find_id <- function() {
   "Explore"
 }
 
-ext <-function() {
+ext <- function() {
   c(".csv", ".zip")
 }
 

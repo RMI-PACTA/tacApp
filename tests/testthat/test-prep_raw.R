@@ -1,10 +1,7 @@
 test_that("outputs the same", {
   skip_if_not_installed("tacAppPrivateData")
 
-  path <- private_path("nuclear_coal.csv")
-  data <- read_csv(path, show_col_types = FALSE) %>%
-    tweak()
-
+  data <- tweak(full())
   out <- prep_raw(data, company_id = 6736, technology = "coal")
   expect_snapshot(out)
 })
@@ -12,9 +9,6 @@ test_that("outputs the same", {
 test_that("with invalid id errors gracefully", {
   skip_if_not_installed("tacAppPrivateData")
 
-  path <- private_path("nuclear_coal.csv")
-  data <- read_csv(path, show_col_types = FALSE) %>%
-    tweak()
-
+  data <- tweak(full())
   expect_snapshot_error(prep_raw(data, company_id = 1, technology = "coal"))
 })
