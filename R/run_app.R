@@ -36,29 +36,29 @@ run_app <- function() {
     )
   )
 
-  server <- function(input, output, session) {
-    tweaked <- reactive(tweak(full()))
-    output$explore <- renderDT(select_tech_and_id(tweaked()), filter = "top")
-
-    data <- eventReactive(input$go, {
-      req(input$company_id)
-
-      prep_raw(
-        tweaked(),
-        company_id = input$company_id,
-        company_type = input$company_type,
-        technology = input$technology
-      )
-    })
-
-    output$summary <- renderTable(summarize_change(data()))
-    output$plot <- renderPlot(plot_techs(data()), res = match_rstudio())
-
-    output$table <- renderDT(data())
-    output$download <- download(data())
-  }
-
   shinyApp(ui, server)
+}
+
+server <- function(input, output, session) {
+  tweaked <- reactive(tweak(full()))
+  output$explore <- renderDT(select_tech_and_id(tweaked()), filter = "top")
+
+  data <- eventReactive(input$go, {
+    req(input$company_id)
+
+    prep_raw(
+      tweaked(),
+      company_id = input$company_id,
+      company_type = input$company_type,
+      technology = input$technology
+    )
+  })
+
+  output$summary <- renderTable(summarize_change(data()))
+  output$plot <- renderPlot(plot_techs(data()), res = match_rstudio())
+
+  output$table <- renderDT(data())
+  output$download <- download(data())
 }
 
 download <- function(data) {
