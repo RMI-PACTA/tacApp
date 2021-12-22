@@ -1,11 +1,3 @@
-company_types <- function() {
-  c("target_company_id", "subsidiary_company_id")
-}
-
-label_find_id <- function() {
-  "Select one row"
-}
-
 categories_order <- function() {
   c(
     "before",
