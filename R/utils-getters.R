@@ -6,10 +6,6 @@ label_find_id <- function() {
   "Explore"
 }
 
-ext <- function() {
-  c(".csv", ".zip")
-}
-
 renewables <- function() {
   c(
     "solar pv",
