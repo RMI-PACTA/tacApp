@@ -30,3 +30,12 @@ rm_prefix <- function(x, prefix) {
 add_unit <- function(x, unit) {
   sprintf("%s [%s]", x, unit)
 }
+
+select_tech_and_id <- function(data) {
+  select(
+    data,
+    .data$technology,
+    .data$target_company_id,
+    .data$subsidiary_company_id
+  )
+}
