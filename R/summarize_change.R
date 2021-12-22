@@ -7,7 +7,8 @@ summarize_change <- function(data) {
   split(data, data$technology) %>%
     lapply(summarize1change) %>%
     enframe(name = "technology") %>%
-    unnest(.data$value)
+    unnest(.data$value) %>%
+    rename_summary()
 }
 
 summarize1change <- function(.x) {
