@@ -27,7 +27,6 @@ Imports:
     tibble,
     tidyr
 Suggests: 
-    here,
     roxygen2,
     testthat (>= 3.0.0)
 Remotes: 
