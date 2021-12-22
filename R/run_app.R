@@ -12,8 +12,8 @@ run_app <- function() {
     tabsetPanel(
       id = "tabs",
       tabPanel(
-        label_find_id(),
-        mainPanel(DTOutput("explore"))
+        "Search and select one row",
+        mainPanel(DTOutput("row_selector"))
       ),
       tabPanel(
         "View changes",
@@ -37,16 +37,15 @@ run_app <- function() {
 }
 
 server <- function(input, output, session) {
-  output$explore <- renderDT(
+  default_input <- list(mode = "single", selected = 1, target = "row")
+  output$row_selector <- renderDT(
     select_tech_and_id(full()),
     filter = "top",
-    selection = list(mode = "single", selected = 1, target = "row")
+    selection = default_input
   )
-
-  row <- reactive(slice(full(), input$explore_rows_selected))
-
   data <- reactive({
-    prep_raw(full(), row())
+    row <- slice(full(), input$row_selector_rows_selected)
+    prep_raw(full(), row)
   })
 
   output$summary <- renderTable(summarize_change(data()))
