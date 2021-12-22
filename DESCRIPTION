@@ -11,7 +11,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-8579-8565")),
     person("2 Degrees Investing Initiative", , , "contact@2degrees-investing.org", role = c("cph", "fnd"))
   )
-Description:  An application to assess company power.
+Description: An application to assess company power.
 License: MIT + file LICENSE
 Imports: 
     dplyr,
