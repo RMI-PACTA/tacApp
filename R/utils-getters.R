@@ -8,14 +8,14 @@ label_find_id <- function() {
 
 renewables <- function() {
   c(
-    "solar pv",
-    "solar thermal",
-    "solar cpv",
-    "wind onshore",
-    "wind offshore",
     "biogas",
     "biomass",
-    "geothermal"
+    "geothermal",
+    "solar_cpv",
+    "solar_pv",
+    "solar_thermal",
+    "wind_offshore",
+    "wind_onshore"
   )
 }
 
