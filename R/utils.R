@@ -15,14 +15,6 @@ match_rstudio <- function() {
   96
 }
 
-#' @examples
-#' x <- c("percent_real", "percent_blah")
-#' rm_prefix(x, "percent_")
-#' @noRd
-rm_prefix <- function(x, prefix) {
-  gsub("percent_", "", x)
-}
-
 select_tech_and_id <- function(data) {
   select(data, .data$technology, matches("_company_"))
 }
