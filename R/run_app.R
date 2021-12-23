@@ -50,6 +50,7 @@ server <- function(input, output, session) {
 
   output$summary <- renderTable({
     out <- summarize_change(data())
+    out <- round_percent_columns(out)
     names(out) <- format_summary_names(names(out))
     out
   })
