@@ -48,7 +48,11 @@ server <- function(input, output, session) {
     prep_raw(full(), row)
   })
 
-  output$summary <- renderTable(summarize_change(data()))
+  output$summary <- renderTable({
+    out <- summarize_change(data())
+    names(out) <- format_summary_names(names(out))
+    out
+  })
   output$plot <- renderPlot(plot_techs(data()), res = match_rstudio())
 
   output$table <- renderDT(data())
