@@ -24,16 +24,16 @@ summarize1change <- function(.x) {
     pull(.data$value) %>%
     sum(na.rm = TRUE)
 
-  percent_real <- 100 * real_change / total_change
+  real_percent <- 100 * real_change / total_change
 
-  percent_virtual <- 100 * virtual_change / total_change
+  virtual_percent <- 100 * virtual_change / total_change
 
   tibble::tibble(
     total_change,
     real_change,
-    percent_real,
+    real_percent,
     virtual_change,
-    percent_virtual
+    virtual_percent
   )
 }
 
