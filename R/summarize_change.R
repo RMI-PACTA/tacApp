@@ -11,30 +11,25 @@ summarize_change <- function(data) {
     select(-.data$technology)
 }
 
-summarize1change <- function(.x) {
-  total_change <- category_value(.x, "after") - category_value(.x, "before")
-
-  real_change <- .x %>%
-    filter(.data$category %in% c("add", "remove", "ramp up", "ramp down")) %>%
-    pull(.data$value) %>%
-    sum(na.rm = TRUE)
-
-  virtual_change <- .x %>%
-    filter(.data$category %in% c("buy", "sell")) %>%
-    pull(.data$value) %>%
-    sum(na.rm = TRUE)
-
+summarize1change <- function(data) {
+  real_categories <- c("add", "remove", "ramp up", "ramp down")
+  real_change <- sum_categories(data, real_categories)
+  virtual_categories <- c("buy", "sell")
+  virtual_change <- sum_categories(data, virtual_categories)
+  total_change <- sum_categories(data, c(real_categories, virtual_categories))
   real_percent <- 100 * real_change / total_change
-
   virtual_percent <- 100 * virtual_change / total_change
 
   tibble::tibble(
-    total_change,
-    real_change,
-    real_percent,
-    virtual_change,
-    virtual_percent
+    total_change, real_change, real_percent, virtual_change, virtual_percent
   )
+}
+
+sum_categories <- function(data, categories) {
+  data %>%
+    filter(.data$category %in% categories) %>%
+    pull(.data$value) %>%
+    sum(na.rm = TRUE)
 }
 
 category_value <- function(data, category) {
