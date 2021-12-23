@@ -23,31 +23,6 @@ rm_prefix <- function(x, prefix) {
   gsub("percent_", "", x)
 }
 
-#' @examples
-#' add_unit(c("foo", "bar"), "%")
-#' add_unit(c("foo", "bar"), "GW")
-#' @noRd
-add_unit <- function(x, unit) {
-  sprintf("%s (%s)", x, unit)
-}
-
 select_tech_and_id <- function(data) {
   select(data, .data$technology, matches("_company_"))
-}
-
-rename_summary <- function(data) {
-  nms <- names(data)
-  nms <- gsub("_", " ", nms)
-  nms <- tools::toTitleCase(nms)
-  # styler: off
-  nms <- case_when(
-    grepl("Percent", nms) ~ add_unit(nms, "%"),
-    grepl("Change", nms)  ~ add_unit(nms, "GW"),
-    TRUE                  ~ nms
-  )
-  # styler: on
-  nms <- gsub("Change ", "", nms)
-  nms <- gsub("Percent ", "", nms)
-  names(data) <- nms
-  data
 }

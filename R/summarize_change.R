@@ -8,8 +8,7 @@ summarize_change <- function(data) {
     lapply(summarize1change) %>%
     enframe(name = "technology") %>%
     unnest(.data$value) %>%
-    select(-.data$technology) %>%
-    rename_summary()
+    select(-.data$technology)
 }
 
 summarize1change <- function(.x) {
@@ -30,7 +29,11 @@ summarize1change <- function(.x) {
   percent_virtual <- 100 * virtual_change / total_change
 
   tibble::tibble(
-    total_change, real_change, virtual_change, percent_real, percent_virtual
+    total_change,
+    real_change,
+    percent_real,
+    virtual_change,
+    percent_virtual
   )
 }
 
