@@ -1,3 +1,11 @@
+test_that("total change is the sum of real and virtual categories", {
+  data <- prep_raw(full())
+  out <- summarize_change(data)
+  expect_equal(
+    pull(out, total_change), pull(out, real_change) + pull(out, virtual_change)
+  )
+})
+
 test_that("has the expected structure", {
   data <- prep_raw(full())
   out <- summarize_change(data)
