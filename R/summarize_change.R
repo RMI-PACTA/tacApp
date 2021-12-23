@@ -17,8 +17,8 @@ summarize1change <- function(data) {
   virtual_categories <- c("buy", "sell")
   virtual_change <- sum_categories(data, virtual_categories)
   total_change <- sum_categories(data, c(real_categories, virtual_categories))
-  real_percent <- 100 * real_change / total_change
-  virtual_percent <- 100 * virtual_change / total_change
+  real_percent <- abs(100 * real_change / total_change)
+  virtual_percent <- abs(100 * virtual_change / total_change)
 
   tibble::tibble(
     total_change, real_change, real_percent, virtual_change, virtual_percent

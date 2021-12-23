@@ -1,3 +1,10 @@
+test_that("percent values are always positive", {
+  data <- prep_raw(full())
+  out <- summarize_change(data)
+  percents <- unlist(select(out, matches("percent")))
+  expect_true(all(percents > 0L))
+})
+
 test_that("total change is the sum of real and virtual categories", {
   data <- prep_raw(full())
   out <- summarize_change(data)
