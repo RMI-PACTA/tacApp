@@ -1,4 +1,4 @@
-plot_techs <- function(data) {
+plot_techs <- function(data, ...) {
   p <- plot_waterfall(data) +
     labs(x = "", y = "Power Capacity (GW)", title = unique(data$technology)) +
     theme(axis.text = element_text(angle = 90, hjust = 1))
@@ -7,7 +7,7 @@ plot_techs <- function(data) {
     p + scale_x_discrete(labels = format_category(data$category))
   )
 
-  p
+  p + theme(...)
 }
 
 format_category <- function(x) {
