@@ -3,9 +3,11 @@ plot_techs <- function(data, fmt_category = format_category) {
     labs(x = "", y = "Power Capacity (GW)", title = unique(data$technology)) +
     theme(axis.text = element_text(angle = 90, hjust = 1))
 
-  suppressMessages(
+  p <- suppressMessages(
     p + scale_x_discrete(labels = fmt_category(data$category))
   )
+
+  p
 }
 
 format_category <- function(x) {
