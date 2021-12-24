@@ -54,7 +54,14 @@ server <- function(input, output, session) {
     names(out) <- format_summary_names(names(out))
     out
   })
-  output$plot <- renderPlot(plot_techs(data()), res = match_rstudio())
+  output$plot <- renderPlot(
+    plot_techs(data(), aspect.ratio = 1/1),
+    res = match_rstudio(),
+    height = function() {
+    # https://github.com/rstudio/shiny/issues/650#issuecomment-62443654
+      session$clientData$output_plot_width
+    }
+  )
 
   output$table <- renderDT(data())
   output$download <- download(data())
