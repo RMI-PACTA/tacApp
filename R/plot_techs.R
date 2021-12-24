@@ -7,7 +7,7 @@ plot_techs <- function(data) {
     p + scale_x_discrete(labels = format_category(data$category))
   )
 
-  p + theme(legend.position = "right")
+  p
 }
 
 format_category <- function(x) {
