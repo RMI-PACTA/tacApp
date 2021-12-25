@@ -38,11 +38,10 @@ run_app <- function() {
 
 server <- function(input, output, session) {
   known_id <- 8L
-  default_input <- list(mode = "single", selected = known_id, target = "row")
+  default <- list(mode = "single", selected = known_id, target = "row")
   output$row_selector <- renderDT(
     select_tech_and_id(full()),
-    filter = "top",
-    selection = default_input
+    selection = default
   )
   data <- reactive({
     row <- slice(full(), input$row_selector_rows_selected)
