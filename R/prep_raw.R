@@ -1,7 +1,7 @@
 #' @examples
 #' prep_raw(full())
 #' @noRd
-prep_raw <- function(data, row = slice(data, 1L)) {
+prep_raw <- function(data, row = fake_row()) {
   prep1tech <- function(data, technology) {
     data %>%
       filter(.data$dual == 1) %>%

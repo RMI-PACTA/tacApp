@@ -2,6 +2,11 @@ test_that("outputs the same", {
   skip_if_not_installed("tacAppPrivateData")
 
   data <- full()
-  out <- prep_raw(data, slice(data, 1))
+  row <- fake_row()
+  out <- prep_raw(data, row)
+
   expect_snapshot(out)
 })
+
+# TODO: Handle warning
+# row <- slice(data, 1)

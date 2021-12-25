@@ -18,3 +18,13 @@ match_rstudio <- function() {
 select_tech_and_id <- function(data) {
   select(data, .data$technology, matches("_company_"))
 }
+
+fake_row <- function() {
+  tibble::tibble(
+    target_company_id = 6759,
+    subsidiary_company_id = 231401,
+    target_company_name = "Iberdrola SA",
+    subsidiary_company_name = "Anselmo Leon SA",
+    technology = as.factor("oil")
+  )
+}

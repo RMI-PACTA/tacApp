@@ -5,17 +5,17 @@
     Output
       # A tibble: 163,520 x 32
          technology target_company_id subsidiary_company_id target_company_name       
-         <fct>                  <int>                 <int> <chr>                     
-       1 hydro                 429218                429218 <NA>                      
-       2 renewables             78791                 18256 <NA>                      
-       3 hydro                 429218                429218 <NA>                      
-       4 renewables            429218                429218 <NA>                      
-       5 renewables             42244                 42244 Sandy Cove Energy Ltd.    
-       6 renewables               919                194971 African Energy Resources ~
-       7 renewables             78791                 18256 <NA>                      
-       8 hydro                 429218                429218 <NA>                      
-       9 renewables            429218                429218 <NA>                      
-      10 renewables               919                194971 African Energy Resources ~
+         <fct>                  <dbl>                 <dbl> <chr>                     
+       1 renewables            219235                219235 1 Slater Drive Llc        
+       2 gas                   219072                219072 1080 Chestnut Street Corp~
+       3 renewables            219108                219108 123 Investment Managers SA
+       4 renewables            219108                219108 123 Investment Managers SA
+       5 renewables            219108                219108 123 Investment Managers SA
+       6 renewables            219121                219121 1330 Campus Parkway Llc   
+       7 renewables            219129                219129 1382839 Ontario Inc       
+       8 renewables            219178                219178 174 Power Global Corp.    
+       9 renewables            219178                219178 174 Power Global Corp.    
+      10 renewables            219178                219178 174 Power Global Corp.    
       # ... with 163,510 more rows, and 28 more variables:
       #   subsidiary_company_name <chr>, SBTI <dbl>, CA100 <dbl>, market_cap <dbl>,
       #   company_status <chr>, state_owned_entity_type <lgl>, shares_weight <dbl>,

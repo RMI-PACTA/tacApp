@@ -1,5 +1,6 @@
 test_that("percent values are always positive", {
   data <- prep_raw(full())
+  # TODO: Handles id = Inf (does not output NaN?)
   out <- summarize_change(data)
   percents <- unlist(select(out, matches("percent")))
   expect_true(all(percents > 0L))
