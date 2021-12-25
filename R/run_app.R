@@ -37,7 +37,8 @@ run_app <- function() {
 }
 
 server <- function(input, output, session) {
-  default_input <- list(mode = "single", selected = 1, target = "row")
+  known_id <- 8L
+  default_input <- list(mode = "single", selected = known_id, target = "row")
   output$row_selector <- renderDT(
     select_tech_and_id(full()),
     filter = "top",
