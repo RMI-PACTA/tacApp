@@ -9,6 +9,6 @@ test_that("has the expected aspect ratio", {
         "oil",   5,    "after",   "total", 0.01898,       0,  0.01898
   )
   # styler: on
-  p <- plot_techs(data, aspect.ratio = 2 / 1, legend.position = "right")
+  p <- plot_techs(data, aspect.ratio = 2 / 1)
   expect_equal(p$theme$aspect.ratio, 2 / 1)
 })
