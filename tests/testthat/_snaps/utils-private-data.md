@@ -26,11 +26,12 @@
       [27] "asset_cap_2020q3"        "region"                 
       [29] "sub-region"              "comp_size"              
       [31] "comp_region"             "comp_sub_region"        
+      [33] "target_company"          "subsidiary_company"     
 
 ---
 
     Code
       dim(full())
     Output
-      [1] 163520     32
+      [1] 163520     34
 
