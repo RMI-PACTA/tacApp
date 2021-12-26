@@ -5,7 +5,7 @@
     Output
       # A tibble: 163,520 x 34
          technology target_company_id subsidiary_company_id target_company_name       
-         <fct>                  <dbl>                 <dbl> <chr>                     
+         <fct>                  <int>                 <int> <chr>                     
        1 renewables            219235                219235 1 Slater Drive Llc        
        2 gas                   219072                219072 1080 Chestnut Street Corp~
        3 renewables            219108                219108 123 Investment Managers SA
