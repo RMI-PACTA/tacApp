@@ -55,11 +55,7 @@ server <- function(input, output, session) {
     out
   })
   output$plot <- renderPlot(
-    plot_techs(
-      data(),
-      aspect.ratio = 1 / 1,
-      legend.position = "right"
-    ),
+    plot_techs(data(), aspect.ratio = 1 / 1),
     res = match_rstudio(),
     height = function() {
       # https://github.com/rstudio/shiny/issues/650#issuecomment-62443654
