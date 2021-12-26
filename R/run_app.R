@@ -40,7 +40,7 @@ server <- function(input, output, session) {
   known_id <- 8L
   default <- list(mode = "single", selected = known_id, target = "row")
   output$row_selector <- renderDT(
-    select_tech_and_id(full()),
+    select_output_columns(full()),
     selection = default
   )
   data <- reactive({

@@ -1,5 +1,5 @@
-private_path <- function(...) {
-  system.file("extdata", "private", ..., package = "tacAppPrivateData")
+extdata_path <- function(..., package = "tacAppPrivateData") {
+  system.file("extdata", ..., package = package)
 }
 
 #' Match resolution of RStudio's viewer panel
@@ -15,7 +15,7 @@ match_rstudio <- function() {
   96
 }
 
-select_tech_and_id <- function(data) {
+select_output_columns <- function(data) {
   select(
     data,
     .data$technology,
