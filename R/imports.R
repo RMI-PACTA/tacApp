@@ -7,7 +7,7 @@
 #' @importFrom readr read_csv write_csv
 #' @importFrom rlang %||% .data .env sym
 #' @importFrom r2dii.plot theme_2dii
-#' @importFrom tibble enframe
+#' @importFrom tibble enframe tibble
 #' @importFrom tidyr unnest
 #' @importFrom utils head
 NULL
