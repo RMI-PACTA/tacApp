@@ -41,7 +41,8 @@ server <- function(input, output, session) {
   default <- list(mode = "single", selected = known_id, target = "row")
   output$row_selector <- renderDT(
     select_output_columns(full()),
-    selection = default
+    selection = default,
+    filter = "top"
   )
   data <- reactive({
     row <- slice(full(), input$row_selector_rows_selected)
