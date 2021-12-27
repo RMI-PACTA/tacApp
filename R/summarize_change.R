@@ -12,10 +12,11 @@ summarize_change <- function(data) {
 }
 
 summarize1change <- function(data) {
-  real_categories <- c("add", "remove", "ramp up", "ramp down")
+  real_categories <- real_categories()
   real_change <- sum_categories(data, real_categories)
-  virtual_categories <- c("buy", "sell")
+  virtual_categories <- virtual_categories()
   virtual_change <- sum_categories(data, virtual_categories)
+  # FIXME: Missing categories filled with 0 result in 0/0 = NaN. What should we do?
   total_change <- sum_categories(data, c(real_categories, virtual_categories))
   real_percent <- abs(100 * real_change / total_change)
   virtual_percent <- abs(100 * virtual_change / total_change)
@@ -73,4 +74,12 @@ add_unit <- function(x, unit) {
 
 round_percent_columns <- function(data) {
   mutate(data, across(matches("percent"), ~ as.integer(round(.x))))
+}
+
+real_categories <- function() {
+    c("add", "remove", "ramp up", "ramp down")
+}
+
+virtual_categories <- function() {
+    c("buy", "sell")
 }

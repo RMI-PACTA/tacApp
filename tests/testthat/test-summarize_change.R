@@ -59,3 +59,9 @@ test_that("helper rounds percents", {
   percents <- unlist(select(out, matches("percent")))
   expect_equal(percents, round(percents))
 })
+
+test_that("FIXME: missing categorisa yield 0/0 = NaN`", {
+  data <- suppressWarnings(prep_raw(full(), full()[1, ]))
+  out <- summarize_change(data)
+  expect_true(is.nan(out$real_percent))
+})

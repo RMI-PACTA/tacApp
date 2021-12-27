@@ -7,6 +7,3 @@ test_that("outputs the same", {
 
   expect_snapshot(out)
 })
-
-# TODO: Handle warning
-# row <- slice(data, 1)
