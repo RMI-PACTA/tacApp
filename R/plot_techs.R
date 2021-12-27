@@ -4,9 +4,7 @@ plot_techs <- function(data, ...) {
     theme(axis.text = element_text(angle = 90, hjust = 1))
 
   p <- suppressMessages(
-    p +
-      scale_x_discrete(labels = format_category(data$category)) +
-      scale_y_continuous(sec.axis = waiver())
+    p + scale_x_discrete(labels = format_category(data$category))
   )
 
   p + theme(...)
