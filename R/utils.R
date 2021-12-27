@@ -18,9 +18,9 @@ match_rstudio <- function() {
 select_output_columns <- function(data) {
   select(
     data,
-    .data$technology,
     .data$target_company,
-    .data$subsidiary_company
+    .data$subsidiary_company,
+    .data$technology
   )
 }
 
