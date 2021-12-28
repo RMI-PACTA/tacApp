@@ -50,13 +50,25 @@ server <- function(input, output, session) {
   })
 
   output$summary <- renderTable({
+    if (!has_useful_categories(data())) {
+      validate(glue("
+        There is no data for the company and technology you selected.
+        Do you need to search and select another row?
+      "))
+    }
+    req(has_useful_categories(data()))
+
     out <- summarize_change(data())
     out <- round_percent_columns(out)
     names(out) <- format_summary_names(names(out))
     out
   })
+
   output$plot <- renderPlot(
-    plot_techs(data(), aspect.ratio = 1 / 1),
+    {
+      req(has_useful_categories(data()))
+      plot_techs(data(), aspect.ratio = 1 / 1)
+    },
     res = match_rstudio(),
     height = function() {
       # https://github.com/rstudio/shiny/issues/650#issuecomment-62443654

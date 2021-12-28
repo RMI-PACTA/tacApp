@@ -33,3 +33,8 @@ fake_row <- function() {
     technology = as.factor("oil")
   )
 }
+
+has_useful_categories <- function(data) {
+  useful_categories <- c(real_categories(), virtual_categories())
+  any(unique(data$category) %in% useful_categories)
+}
