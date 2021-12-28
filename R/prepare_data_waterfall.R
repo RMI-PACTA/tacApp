@@ -22,13 +22,6 @@ prepare_data_waterfall <- function(data,
 
   data_portfolio <- data %>%
     filter(.data$dual == 1) %>% # for now we only look at not dual plants as we don't know how to deal with dual - Angelika
-    # TODO: Ask Souad if this is dead code
-    #    filter(.data$CA100 == company_type_filter) %>%
-    #    filter(.data$SBTI == company_type_filter) %>%
-    #    filter(.data$comp_region == region_filter_2) %>%
-    #     filter(.data$comp_sub_region == region_filter_2) %>%
-    #    filter(.data$company_status == company_type_filter) %>%
-    #    filter(.data$comp_size == company_type_filter) %>%
     filter(.data$technology == .env$technology_filter) %>%
     filter(.data[[column_comp_id]] %in% portfolio_ids) %>%
     mutate(val_change = !!sym(column_after) - !!sym(column_before)) %>%
@@ -64,12 +57,6 @@ prepare_data_waterfall <- function(data,
 
   total_before <- data %>%
     filter(.data$dual == 1) %>% # for now we only look at not dual plants as we don't know how to deal with dual - Angelika
-    #    filter(.data$CA100 == company_type_filter) %>%
-    #    filter(.data$SBTI == company_type_filter) %>%
-    #    filter(.data$comp_region == region_filter_2) %>%
-    #    filter(.data$comp_sub_region == region_filter_2) %>%
-    #    filter(.data$company_status == company_type_filter) %>%
-    #    filter(.data$comp_size == company_type_filter) %>%
     filter(.data$technology == .env$technology_filter) %>%
     filter(.data[[column_comp_id]] %in% portfolio_ids) %>%
     summarise(
@@ -81,12 +68,6 @@ prepare_data_waterfall <- function(data,
 
   total_after <- data %>%
     filter(.data$dual == 1) %>% # for now we only look at not dual plants as we don't know how to deal with dual - Angelika
-    #    filter(.data$CA100 == company_type_filter) %>%
-    #    filter(.data$SBTI == company_type_filter) %>%
-    #    filter(.data$comp_region == region_filter_2) %>%
-    #    filter(.data$comp_sub_region == region_filter_2) %>%
-    #    filter(.data$company_status == company_type_filter) %>%
-    #    filter(.data$comp_size == company_type_filter) %>%
     filter(.data$technology == .env$technology_filter) %>%
     filter(.data[[column_comp_id]] %in% portfolio_ids) %>%
     summarise(
