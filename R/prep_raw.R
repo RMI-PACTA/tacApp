@@ -33,5 +33,24 @@ prep_raw <- function(data, row = fake_row()) {
   names(out) <- technology
   out <- enframe(out, name = "technology")
   out <- unnest(out, .data$value)
+  abort_if_has_no_useful_category(out)
   out
+}
+
+abort_if_has_no_useful_category <- function(data) {
+  useful_categories <- c(real_categories(), virtual_categories())
+  has_useful_category <- any(unique(data$category) %in% useful_categories)
+  if (!has_useful_category) {
+    abort(c(
+      "`data` must have at least one real or virtual category.",
+      x = glue("Given categories: {toString(unique(data$category))}."),
+      glue("Real categories: {toString(real_categories())}"),
+      glue("Virtual categories: {toString(virtual_categories())}"),
+      i = "Do you need to choose a different technology?"
+    ),
+    class = "has_no_useful_category"
+    )
+  }
+
+  invisible(data)
 }

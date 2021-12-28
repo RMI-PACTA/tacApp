@@ -1,3 +1,11 @@
+real_categories <- function() {
+  c("add", "remove", "ramp up", "ramp down")
+}
+
+virtual_categories <- function() {
+  c("buy", "sell")
+}
+
 categories_order <- function() {
   c(
     "before",

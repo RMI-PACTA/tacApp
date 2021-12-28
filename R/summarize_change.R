@@ -12,11 +12,9 @@ summarize_change <- function(data) {
 }
 
 summarize1change <- function(data) {
-  real_categories <- c("add", "remove", "ramp up", "ramp down")
-  real_change <- sum_categories(data, real_categories)
-  virtual_categories <- c("buy", "sell")
-  virtual_change <- sum_categories(data, virtual_categories)
-  total_change <- sum_categories(data, c(real_categories, virtual_categories))
+  real_change <- sum_categories(data, real_categories())
+  virtual_change <- sum_categories(data, virtual_categories())
+  total_change <- sum_categories(data, c(real_categories(), virtual_categories()))
   real_percent <- abs(100 * real_change / total_change)
   virtual_percent <- abs(100 * virtual_change / total_change)
 

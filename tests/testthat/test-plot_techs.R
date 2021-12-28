@@ -14,13 +14,7 @@ test_that("has the expected aspect ratio", {
 })
 
 test_that("the visuals remain the same", {
-  data <- prep_raw(full(), full()[40,])
+  data <- prep_raw(full(), full()[40, ])
   p <- plot_techs(data)
   vdiffr::expect_doppelganger("with tech data x-labels reamain the same", p)
-})
-
-test_that("with no data for technology the visuals remain the same", {
-  data <- suppressWarnings(prep_raw(full(), full()[1,]))
-  p <- plot_techs(data)
-  vdiffr::expect_doppelganger("with no tech data x-labels reamain the same", p)
 })
