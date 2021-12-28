@@ -23,7 +23,7 @@ prepare_data_waterfall <- function(data,
 
   data_portfolio <- data %>%
     filter(.data$dual == 1) %>% # for now we only look at not dual plants as we don't know how to deal with dual - Angelika
-    # TODO: Remove dead code?
+    # TODO: Ask Souad if this is dead code
     #    filter(.data$CA100 == company_type_filter) %>%
     #    filter(.data$SBTI == company_type_filter) %>%
     #    filter(.data$comp_region == region_filter_2) %>%
@@ -66,7 +66,6 @@ prepare_data_waterfall <- function(data,
 
   total_before <- data %>%
     filter(.data$dual == 1) %>% # for now we only look at not dual plants as we don't know how to deal with dual - Angelika
-    # TODO: Remove dead code?
     #    filter(.data$CA100 == company_type_filter) %>%
     #    filter(.data$SBTI == company_type_filter) %>%
     #    filter(.data$comp_region == region_filter_2) %>%
@@ -85,7 +84,6 @@ prepare_data_waterfall <- function(data,
 
   total_after <- data %>%
     filter(.data$dual == 1) %>% # for now we only look at not dual plants as we don't know how to deal with dual - Angelika
-    # TODO: Remove dead code?
     #    filter(.data$CA100 == company_type_filter) %>%
     #    filter(.data$SBTI == company_type_filter) %>%
     #    filter(.data$comp_region == region_filter_2) %>%
