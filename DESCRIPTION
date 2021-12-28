@@ -17,6 +17,7 @@ Imports:
     dplyr,
     DT,
     ggplot2,
+    glue,
     magrittr,
     pkgload,
     r2dii.plot,
@@ -28,7 +29,8 @@ Imports:
     tidyr
 Suggests: 
     roxygen2,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    vdiffr
 Remotes: 
     2DegreesInvesting/tacAppPrivateData
 Config/testthat/edition: 3

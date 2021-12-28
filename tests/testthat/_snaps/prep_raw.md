@@ -12,3 +12,11 @@
       4 oil            4 too late unknown 0.0174 0.0190  0.0016 
       5 oil            5 after    total   0.0190 0       0.0190 
 
+# with missing techology data errors gracefully
+
+    `data` must have at least one real or virtual category.
+    x Given categories: before, after.
+    * Real categories: add, remove, ramp up, ramp down
+    * Virtual categories: buy, sell
+    i Do you need to choose a different technology?
+
