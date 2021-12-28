@@ -33,7 +33,6 @@ prep_raw <- function(data, row = fake_row()) {
   names(out) <- technology
   out <- enframe(out, name = "technology")
   out <- unnest(out, .data$value)
-  abort_if_has_no_useful_category(out)
   out
 }
 
