@@ -13,10 +13,3 @@ test_that("the first selectable row produces the expected result", {
     expect_snapshot(result())
   })
 })
-
-test_that("shows the expected plot", {
-  testServer(server, {
-    session$setInputs(row_selector_rows_selected = 1)
-    vdiffr::expect_doppelganger("reactive waterfall plot", plot())
-  })
-})

@@ -3,7 +3,7 @@
 #' @importFrom DT renderDT DTOutput
 #' @importFrom dplyr arrange case_when filter group_by filter if_else mutate
 #' @importFrom dplyr select summarise mutate relocate pull bind_rows matches
-#' @importFrom dplyr slice across distinct
+#' @importFrom dplyr slice across distinct left_join
 #' @importFrom fs path_ext_remove path_file dir_ls
 #' @importFrom glue glue
 #' @importFrom here here

@@ -13,8 +13,42 @@ test_that("has the expected aspect ratio", {
   expect_equal(p$theme$aspect.ratio, 2 / 1)
 })
 
-test_that("the visuals remain the same", {
-  data <- prep_raw(valid, valid[40, ])
+test_that("with data only of type total and real (no virtual) real is green", {
+  # styler: on
+  data <- tibble::tribble(
+     ~technology, ~id, ~category,   ~type, ~start,  ~end, ~value,
+    "renewables",   1,  "before", "total",      0, 0.001,  0.001,
+    "renewables",   2,  "remove",  "real",  0.001,     0, -0.001,
+    "renewables",   3,   "after", "total",      0,     0,      0
+    )
+  # styler: off
   p <- plot_techs(data)
-  vdiffr::expect_doppelganger("with tech data x-labels reamain the same", p)
+  vdiffr::expect_doppelganger("only real data", p)
+})
+
+test_that("with real and virtual data orange is virtual", {
+  # styler: on
+  data <- tibble::tribble(
+     ~technology, ~id, ~category,     ~type,  ~start,    ~end,  ~value,
+    "renewables",   1,  "before",   "total",       0, 0.24064, 0.24064,
+    "renewables",   2,     "add",    "real", 0.24064, 0.60664,   0.366,
+    "renewables",   3,     "buy", "virtual", 0.60664, 0.65664,    0.05,
+    "renewables",   4,   "after",   "total", 0.65664,       0, 0.65664
+    )
+  # styler: off
+  p <- plot_techs(data)
+  vdiffr::expect_doppelganger("virtual and real data", p)
+})
+
+test_that("with only virtual data orange is virtual", {
+  # styler: on
+  data <- tibble::tribble(
+     ~technology, ~id, ~category,     ~type, ~start,   ~end, ~value,
+    "renewables",   1,  "before",   "total",      0, 0.0062, 0.0062,
+    "renewables",   2,     "buy", "virtual", 0.0062, 0.0182,  0.012,
+    "renewables",   3,   "after",   "total", 0.0182,      0, 0.0182
+    )
+  # styler: off
+  p <- plot_techs(data)
+  vdiffr::expect_doppelganger("only virtual data", p)
 })
