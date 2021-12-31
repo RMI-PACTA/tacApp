@@ -55,3 +55,7 @@ devtools::load_all()
 ``` r
 run_app()
 ```
+
+Note the app uses private files in data/. Git ignores those files.
+Developers with access to private data can generate the file in data/
+from source code in data-raw/.
