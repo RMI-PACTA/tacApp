@@ -14,7 +14,7 @@ plot_waterfall <- function(data, type_order = NULL, type_colours = NULL) {
     geom_rect(aes(xmin = id - 0.45, xmax = id + 0.45, ymin = end, ymax = start)) +
     scale_x_discrete(labels = data$category) +
     scale_y_continuous(sec.axis = dup_axis()) +
-    scale_fill_manual(values = setNames(cols$colour_hex, cols$type)) +
+    scale_fill_manual(values = set_names(cols$colour_hex, cols$type)) +
     theme_2dii() +
     theme(axis.line.x = element_blank()) +
     theme(axis.ticks.x = element_blank()) +
