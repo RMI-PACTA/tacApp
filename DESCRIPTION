@@ -1,6 +1,6 @@
 Package: tacApp
 Title: An Application to Assess Company Power
-Version: 0.0.0.9014
+Version: 0.0.0.9015
 Authors@R: c(
     person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "ctr", "cre"),
            comment = c(ORCID = "0000-0002-1986-7988")),
