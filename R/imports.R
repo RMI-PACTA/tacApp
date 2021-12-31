@@ -9,7 +9,7 @@
 #' @importFrom here here
 #' @importFrom r2dii.plot theme_2dii
 #' @importFrom readr read_csv write_csv
-#' @importFrom rlang %||% .data .env sym abort
+#' @importFrom rlang %||% .data .env sym abort set_names
 #' @importFrom tibble enframe tibble add_column tribble
 #' @importFrom tidyr unnest
 #' @importFrom utils head
