@@ -1,20 +1,11 @@
 #' @examples
-#' data <- full()
-#' out <- prep_raw(data, company_id = 919, technology = "renewables")
-#' summarize_change(out)
+#' data <- prep_raw(valid, valid[8, ])
+#' summarize_change(data)
 #' @noRd
 summarize_change <- function(data) {
-  split(data, data$technology) %>%
-    lapply(summarize1change) %>%
-    enframe(name = "technology") %>%
-    unnest(.data$value) %>%
-    select(-.data$technology)
-}
-
-summarize1change <- function(data) {
   real_change <- sum_categories(data, real_categories())
   virtual_change <- sum_categories(data, virtual_categories())
-  total_change <- sum_categories(data, c(real_categories(), virtual_categories()))
+  total_change <- sum_categories(data, useful_categories())
   real_percent <- abs(100 * real_change / total_change)
   virtual_percent <- abs(100 * virtual_change / total_change)
 
