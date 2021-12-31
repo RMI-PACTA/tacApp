@@ -1,27 +1,26 @@
+test_that("outputs the expected snapshot", {
+  data <- prep_raw(valid)
+  out <- summarize_change(data)
+  expect_snapshot(out)
+})
+
 test_that("percent values are always positive", {
-  data <- prep_raw(full())
-  # TODO: Handles id = Inf (does not output NaN?)
+  data <- prep_raw(valid)
   out <- summarize_change(data)
   percents <- unlist(select(out, matches("percent")))
-  expect_true(all(percents > 0L))
+  expect_true(all(percents >= 0L))
 })
 
 test_that("total change is the sum of real and virtual categories", {
-  data <- prep_raw(full())
+  data <- prep_raw(valid)
   out <- summarize_change(data)
   expect_equal(
     pull(out, total_change), pull(out, real_change) + pull(out, virtual_change)
   )
 })
 
-test_that("has the expected structure", {
-  data <- prep_raw(full())
-  out <- summarize_change(data)
-  expect_snapshot(out)
-})
-
 test_that("outputs names with the word 'percent'", {
-  data <- prep_raw(full())
+  data <- prep_raw(valid)
   out <- summarize_change(data)
   expect_true(any(grepl("percent", names(out))))
 })
@@ -53,7 +52,7 @@ test_that("helper removes the suffix 'change'", {
 })
 
 test_that("helper rounds percents", {
-  data <- prep_raw(full())
+  data <- prep_raw(valid)
   out <- summarize_change(data)
   out <- round_percent_columns(out)
   percents <- unlist(select(out, matches("percent")))

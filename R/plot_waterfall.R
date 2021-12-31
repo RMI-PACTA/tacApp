@@ -22,7 +22,7 @@ plot_waterfall <- function(data, type_order = NULL, type_colours = NULL) {
 # styler: off
 palette_colours <- function() {
   # From r2dii.plot:::palette_colours to avoid dependency on internal object
-  tibble::tribble(
+  tribble(
          ~label, ~colour_hex,
     "dark_blue",   "#1b324f",
         "green",   "#00c082",

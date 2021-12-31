@@ -1,6 +1,6 @@
 Package: tacApp
 Title: An Application to Assess Company Power
-Version: 0.0.0.9011
+Version: 0.0.0.9012
 Authors@R: c(
     person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "ctr", "cre"),
            comment = c(ORCID = "0000-0002-1986-7988")),
@@ -13,11 +13,15 @@ Authors@R: c(
   )
 Description: An application to assess company power.
 License: MIT + file LICENSE
+Depends: 
+    R (>= 2.10)
 Imports: 
     dplyr,
     DT,
+    fs,
     ggplot2,
     glue,
+    here,
     magrittr,
     pkgload,
     r2dii.plot,
@@ -26,7 +30,8 @@ Imports:
     shiny,
     tacAppPrivateData (>= 0.0.0.9000),
     tibble,
-    tidyr
+    tidyr,
+    vroom
 Suggests: 
     roxygen2,
     testthat (>= 3.0.0),
@@ -36,5 +41,7 @@ Remotes:
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
+LazyData: true
+LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

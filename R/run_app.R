@@ -37,38 +37,29 @@ run_app <- function() {
 }
 
 server <- function(input, output, session) {
-  known_id <- 8L
-  default <- list(mode = "single", selected = known_id, target = "row")
+  first_row <- 1L
+  default_row <- list(mode = "single", selected = first_row, target = "row")
   output$row_selector <- renderDT(
-    select_output_columns(full()),
-    selection = default,
+    select_output_columns(useful),
+    selection = default_row,
     filter = "top"
   )
-  data <- reactive({
-    row <- slice(full(), input$row_selector_rows_selected)
-    prep_raw(full(), row)
-  })
+
+  result <- reactive({
+    selected_row <- slice(useful, input$row_selector_rows_selected)
+    prep_raw(valid, selected_row)
+  }) %>%
+    bindCache(input$row_selector_rows_selected)
 
   output$summary <- renderTable({
-    if (!has_useful_categories(data())) {
-      validate(glue("
-        There is no data for the company and technology you selected.
-        Do you need to search and select another row?
-      "))
-    }
-    req(has_useful_categories(data()))
-
-    out <- summarize_change(data())
+    out <- summarize_change(result())
     out <- round_percent_columns(out)
     names(out) <- format_summary_names(names(out))
     out
   })
 
   output$plot <- renderPlot(
-    {
-      req(has_useful_categories(data()))
-      plot_techs(data(), aspect.ratio = 1 / 1)
-    },
+    plot_techs(result(), aspect.ratio = 1 / 1),
     res = match_rstudio(),
     height = function() {
       # https://github.com/rstudio/shiny/issues/650#issuecomment-62443654
@@ -76,8 +67,8 @@ server <- function(input, output, session) {
     }
   )
 
-  output$table <- renderDT(data())
-  output$download <- download(data())
+  output$table <- renderDT(result())
+  output$download <- download(result())
 }
 
 download <- function(data) {

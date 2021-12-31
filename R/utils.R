@@ -1,7 +1,3 @@
-extdata_path <- function(..., package = "tacAppPrivateData") {
-  system.file("extdata", ..., package = package)
-}
-
 #' Match resolution of RStudio's viewer panel
 #'
 #' "We recommend always setting res = 96 as that will make your Shiny plots
@@ -24,17 +20,38 @@ select_output_columns <- function(data) {
   )
 }
 
-fake_row <- function() {
-  tibble(
-    target_company_id = 6759,
-    subsidiary_company_id = 231401,
-    target_company_name = "Iberdrola SA",
-    subsidiary_company_name = "Anselmo Leon SA",
-    technology = as.factor("oil")
-  )
+data_raw_path <- function(...) {
+  here("data-raw", ...)
 }
 
 has_useful_categories <- function(data) {
-  useful_categories <- c(real_categories(), virtual_categories())
-  any(unique(data$category) %in% useful_categories)
+  any(unique(data$category) %in% useful_categories())
+}
+
+useful_categories <- function() {
+  c(real_categories(), virtual_categories())
+}
+
+real_categories <- function() {
+  c("add", "remove", "ramp up", "ramp down")
+}
+
+virtual_categories <- function() {
+  c("buy", "sell")
+}
+
+categories_order <- function() {
+  c(
+    "before",
+    "add",
+    "buy",
+    "ramp up",
+    "remove",
+    "sell",
+    "ramp down",
+    "untraceable",
+    "unidentified",
+    "too late",
+    "after"
+  )
 }

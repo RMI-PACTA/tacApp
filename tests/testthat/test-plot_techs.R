@@ -1,6 +1,6 @@
 test_that("has the expected aspect ratio", {
   # styler: off
-  data <- tibble::tribble(
+  data <- tribble(
     ~technology, ~id,  ~category,     ~type,  ~start,    ~end,   ~value,
         "oil",   1,   "before",   "total",       0, 0.02374,  0.02374,
         "oil",   2,   "remove",    "real", 0.02374, 0.02214,  -0.0016,
@@ -14,7 +14,7 @@ test_that("has the expected aspect ratio", {
 })
 
 test_that("the visuals remain the same", {
-  data <- prep_raw(full(), full()[40, ])
+  data <- prep_raw(valid, valid[40, ])
   p <- plot_techs(data)
   vdiffr::expect_doppelganger("with tech data x-labels reamain the same", p)
 })

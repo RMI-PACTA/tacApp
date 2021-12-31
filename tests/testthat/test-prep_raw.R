@@ -1,9 +1,4 @@
 test_that("outputs the same", {
-  skip_if_not_installed("tacAppPrivateData")
-
-  data <- full()
-  row <- fake_row()
-  out <- prep_raw(data, row)
-
+  out <- prep_raw(valid)
   expect_snapshot(out)
 })
