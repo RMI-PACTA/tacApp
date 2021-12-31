@@ -7,8 +7,9 @@ plot_waterfall <- function(data, type_order = NULL, type_colours = NULL) {
     arrange(factor(.data$label, levels = type_colours))
 
   cols <- tibble(type = type_order, label = type_colours) %>%
-    dplyr::left_join(r2dii_colours, by = "label") %>%
-    select(.data$type, .data$colour_hex)
+    left_join(r2dii_colours, by = "label") %>%
+    select(.data$type, .data$colour_hex) %>%
+    filter(type %in% unique(data$type))
 
   ggplot(data, aes(category, fill = factor(type, levels = type_order))) +
     geom_rect(aes(xmin = id - 0.45, xmax = id + 0.45, ymin = end, ymax = start)) +
