@@ -3,11 +3,10 @@
     Code
       result()
     Output
-      # A tibble: 4 x 7
-        technology    id category type    start   end value
-        <chr>      <dbl> <chr>    <chr>   <dbl> <dbl> <dbl>
-      1 renewables     1 before   total   0     0.241 0.241
-      2 renewables     2 add      real    0.241 0.607 0.366
-      3 renewables     3 buy      virtual 0.607 0.657 0.05 
-      4 renewables     4 after    total   0.657 0     0.657
+      # A tibble: 3 x 7
+        technology    id category type  start   end value
+        <chr>      <dbl> <chr>    <chr> <dbl> <dbl> <dbl>
+      1 renewables     1 before   total 0     0.241 0.241
+      2 renewables     2 add      real  0.241 0.400 0.159
+      3 renewables     3 after    total 0.400 0     0.400
 
