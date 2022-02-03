@@ -28,7 +28,6 @@ Imports:
     readr,
     rlang (>= 0.4.11),
     shiny,
-    tacAppPrivateData (>= 0.0.0.9000),
     tibble,
     tidyr,
     vroom
@@ -36,8 +35,6 @@ Suggests:
     roxygen2,
     testthat (>= 3.0.0),
     vdiffr
-Remotes: 
-    2DegreesInvesting/tacAppPrivateData
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
