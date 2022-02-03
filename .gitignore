@@ -1,6 +1,8 @@
 .Rproj.user
 .Rhistory
 rsconnect
-data
 data-raw/result
-data-raw/summary
+data/*
+# rowids are not private
+!data/valid_rowids.rda
+
