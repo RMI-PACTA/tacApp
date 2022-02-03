@@ -19,10 +19,17 @@ prep_raw <- function(data, selected = data[8, ]) {
       technology_filter = technology,
       portfolio_ids = unique(data$subsidiary_company_id),
       column_comp_id = "subsidiary_company_id",
-      # FIXME: This seems brittle
-      column_before = "comp_cap_2018q4",
-      column_after = "comp_cap_2020q3",
+      column_before = column_before(),
+      column_after = column_after(),
       categories_order = categories_order()
     ) %>%
     tibble::add_column(technology = .env$technology, .before = 1)
+}
+
+column_before <- function() {
+  "comp_cap_2018_actual"
+}
+
+column_after <- function() {
+  "comp_cap_2020_actual"
 }

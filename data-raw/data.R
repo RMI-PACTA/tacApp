@@ -1,12 +1,15 @@
-valid_rowids <- "result" %>%
-  data_raw_path() %>%
-  dir_ls() %>%
-  path_file() %>%
-  path_ext_remove() %>%
-  as.integer() %>%
-  sort()
+# WARNING: Git ignores data/. You may recover it from the published app's bundle
 
-valid <- valid %>%
+if (!exists("valid_rowids", "package:tacApp")) {
+  rlang::abort(c(
+    "`valid_rowids` must exist.",
+    i = "Do you need to run `source(here::here('data-raw/valid_rowids.R'))`?"
+  ))
+}
+
+valid_rowids <- tacApp::valid_rowids
+
+valid <- full() %>%
   filter(rowid %in% valid_rowids)
 
 unique_rowids <- valid %>%
