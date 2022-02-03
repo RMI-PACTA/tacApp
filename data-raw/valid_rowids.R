@@ -1,7 +1,7 @@
 # This script is very slow but for a good reason: To improve the experience of
 # those use use the tacApp. This process helps expose not all the raw data but
 # only that which leads to valid results. Without this the user would often get
-# invalid results. Be patient. It took about 2h to complete on my laptop.
+# invalid results. Be patient. On my laptop this script completed in about 3h.
 library(dplyr, warn.conflicts = FALSE)
 library(progress)
 library(devtools)

@@ -5,7 +5,7 @@
 \alias{unique_rowids}
 \title{Unique \code{rowid} of the \code{valid} dataset that produces valid results}
 \format{
-An object of class \code{integer} of length 11259.
+An object of class \code{integer} of length 9038.
 }
 \usage{
 unique_rowids

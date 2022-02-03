@@ -5,7 +5,7 @@
 \alias{valid_rowids}
 \title{All \code{rowid} of the \code{valid} dataset that produces valid results}
 \format{
-An object of class \code{integer} of length 123733.
+An object of class \code{integer} of length 118221.
 }
 \usage{
 valid_rowids
