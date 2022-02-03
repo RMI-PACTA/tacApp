@@ -23,6 +23,6 @@ find_valid_rowids <- function(data) {
   valid[valid > 0]
 }
 
-valid_rowids <- find_valid_rowids(full())
+valid_rowids <- find_valid_rowids(tacAppPrivateData::full)
 
 use_data(valid_rowids, overwrite = TRUE)

@@ -15,10 +15,6 @@
 #' @importFrom utils head
 NULL
 
-full <- function() {
-  tacAppPrivateData::full
-}
-
 globalVariables(c(
   "valid",
   "useful",

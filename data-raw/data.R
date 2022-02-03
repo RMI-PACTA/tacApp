@@ -9,7 +9,7 @@ if (!exists("valid_rowids", "package:tacApp")) {
 
 valid_rowids <- tacApp::valid_rowids
 
-valid <- full() %>%
+valid <-   tacAppPrivateData::full %>%
   filter(rowid %in% valid_rowids)
 
 unique_rowids <- valid %>%
