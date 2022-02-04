@@ -18,6 +18,7 @@ unique_rowids <- valid %>%
   pull(rowid)
 
 useful <- filter(valid, rowid %in% unique_rowids)
+
 use_data(
   valid,
   valid_rowids,

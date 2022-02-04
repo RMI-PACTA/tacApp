@@ -12,19 +12,22 @@ run_app <- function() {
     tabsetPanel(
       id = "tabs",
       tabPanel(
-        "Search and select one row",
-        mainPanel(DTOutput("row_selector"))
-      ),
-      tabPanel(
-        "View changes",
+        "Select a company and technology",
         mainPanel(
-          tableOutput("summary"),
-          plotOutput("plot")
+          fluidRow(
+            selectizeInput("name", label = "Parent company", choices = NULL),
+            selectInput("tech", label = "Technology", choices = NULL),
+            actionButton("apply", "Apply", class = "btn-lg btn-success")
+          ),
+          fluidRow(
+            tableOutput("summary"),
+            plotOutput("plot")
+          )
         )
       ),
       tabPanel(
         "Download results",
-        DTOutput("table"),
+        tableOutput("table"),
         downloadButton(
           "download", "Download results",
           class = "btn-lg btn-success"
@@ -37,19 +40,29 @@ run_app <- function() {
 }
 
 server <- function(input, output, session) {
-  first_row <- 1L
-  default_row <- list(mode = "single", selected = first_row, target = "row")
-  output$row_selector <- renderDT(
-    select_output_columns(useful),
-    selection = default_row,
-    filter = "top"
-  )
+  # Using server-side selectize for massively improved performance. See
+  # ?selectizeInput and https://shiny.rstudio.com/articles/selectize.html
+  choices <- unique(useful$target_company_name)
+  updateSelectizeInput(session, "name", choices = choices, server = TRUE)
+
+  name <- reactive({
+    filter(useful, .data$target_company_name == input$name)
+  })
+
+  observeEvent(name(), {
+    choices <- unique(name()$technology)
+    updateSelectInput(inputId = "tech", choices = choices)
+  })
+
+  selected <- eventReactive(input$apply, {
+    filter(name(), .data$technology == input$tech)
+  })
 
   result <- reactive({
-    selected_row <- slice(useful, input$row_selector_rows_selected)
-    prep_raw(valid, selected_row)
-  }) %>%
-    bindCache(input$row_selector_rows_selected)
+    # FIXME: Do we expect to have more than 1 row for one company name and tech?
+    selected <- head(selected(), 1)
+    prep_raw(valid, selected = selected)
+  })
 
   output$summary <- renderTable({
     out <- summarize_change(result())
@@ -59,7 +72,10 @@ server <- function(input, output, session) {
   })
 
   output$plot <- renderPlot(
-    plot_techs(result(), aspect.ratio = 1 / 1),
+    {
+      req(input$apply)
+      plot_techs(result(), aspect.ratio = 1 / 1)
+    },
     res = match_rstudio(),
     height = function() {
       # https://github.com/rstudio/shiny/issues/650#issuecomment-62443654
@@ -67,7 +83,7 @@ server <- function(input, output, session) {
     }
   )
 
-  output$table <- renderDT(result())
+  output$table <- renderTable(result())
   output$download <- download(result())
 }
 
