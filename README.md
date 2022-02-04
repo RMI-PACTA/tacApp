@@ -1,65 +1,36 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
-
-## Power company assessment
+# tacApp
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-### Goal
-
-The tacApp application helps you analyze changes in the power sector
-between two time periods.
-
-### Inputs and outputs
-
-* You input a dataset, and select a technology and company.
-
-* The application outputs a summary of the _real_ and _virtual_ change, and
-shows a breakdown of changes as a plot and as a downloadable table.
-
-A _real_ change is an increase or decrease in the production capacity. A
-_virtual_ change is a change not in the production capacity but in the ownership
-of the asset.
-
-### Data
-
-The data is private:
-
-* Users may get it from Asset Resolution.
-* Developers may get it from
-<https://github.com/2DegreesInvesting/tacAppPrivateData>.
+The goal of tacApp is to help you analyze changes in the power sector
+between two time periods. The public source code lives in an [R
+package](%5Bhere%5D(https://github.com/2DegreesInvesting/tacApp)), and
+the public application is available
+[online](https://twodii.shinyapps.io/tacApp/).
 
 ## Usage
 
-Browse to <https://twodii.shinyapps.io/tacApp/> and follow the prompts.
+-   Go to <https://twodii.shinyapps.io/tacApp/>.
+-   Select a parent company and a technology.
+-   Click “Apply”.
 
-## Development
+## Output
 
-1. Clone this repo.
+-   A summary of the *real* and *virtual* change.
+-   A breakdown of changes as a plot.
+-   A breakdown of changes as a downloadable table.
 
-```bash
-git clone https://github.com/2DegreesInvesting/tacApp
-cd tacApp
-```
+A *real* change is an increase or decrease in the production capacity. A
+*virtual* change is a change not in the production capacity but in the
+ownership of the asset.
 
-2. Load the code.
+## Data
 
-```r
-devtools::load_all()
-```
-
-3. Run the app.
-
-```r
-run_app()
-```
-
-Note the app uses private files in data/. Git ignores those files. Developers
-with access to private data can generate the file in data/ from source code in
-data-raw/.
+The data is private. You may get it from [Asset
+Resolution](https://asset-resolution.com/). If you have access
+permission you may get it at
+<https://github.com/2DegreesInvesting/tacAppPrivateData>.
