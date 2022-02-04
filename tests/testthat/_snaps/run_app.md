@@ -1,4 +1,4 @@
-# the first selectable row produces the expected result
+# the first row has useful categories
 
     Code
       result()
