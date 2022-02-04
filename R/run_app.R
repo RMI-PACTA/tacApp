@@ -46,7 +46,6 @@ server <- function(input, output, session) {
   updateSelectizeInput(session, "name", choices = choices, server = TRUE)
 
   company_name <- reactive({
-    # browser()
     filter(useful, .data$target_company_name == input$name)
   })
 

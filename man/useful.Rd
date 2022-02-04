@@ -5,7 +5,7 @@
 \alias{useful}
 \title{Private data added to .gitignore}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 9038 rows and 41 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 5200 rows and 41 columns.
 }
 \usage{
 useful

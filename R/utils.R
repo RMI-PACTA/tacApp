@@ -11,15 +11,6 @@ match_rstudio <- function() {
   96
 }
 
-select_output_columns <- function(data) {
-  select(
-    data,
-    .data$target_company,
-    .data$subsidiary_company,
-    .data$technology
-  )
-}
-
 data_raw_path <- function(...) {
   here("data-raw", ...)
 }
