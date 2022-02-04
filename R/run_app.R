@@ -45,17 +45,18 @@ server <- function(input, output, session) {
   choices <- unique(useful$target_company_name)
   updateSelectizeInput(session, "name", choices = choices, server = TRUE)
 
-  name <- reactive({
+  company_name <- reactive({
+    # browser()
     filter(useful, .data$target_company_name == input$name)
   })
 
-  observeEvent(name(), {
-    choices <- unique(name()$technology)
+  observeEvent(company_name(), {
+    choices <- unique(company_name()$technology)
     updateSelectInput(inputId = "tech", choices = choices)
   })
 
   selected <- eventReactive(input$apply, {
-    filter(name(), .data$technology == input$tech)
+    filter(company_name(), .data$technology == input$tech)
   })
 
   result <- reactive({
