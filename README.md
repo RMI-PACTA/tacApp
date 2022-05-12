@@ -34,3 +34,6 @@ The data is private. You may get it from [Asset
 Resolution](https://asset-resolution.com/). If you have access
 permission you may get it at
 <https://github.com/2DegreesInvesting/tacAppPrivateData>.
+
+To update the data start at tacAppPrivateData/data-raw/, then continue
+at tacApp/data-raw/.

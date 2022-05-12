@@ -1,5 +1,5 @@
 # This script is very slow but for a good reason: To improve the experience of
-# those use use the tacApp. This process helps expose not all the raw data but
+# those who use the tacApp. This process helps expose not all the raw data but
 # only that which leads to valid results. Without this the user would often get
 # invalid results. Be patient. On my laptop this script completed in about 3h.
 library(dplyr, warn.conflicts = FALSE)
@@ -15,6 +15,8 @@ find_valid_rowids <- function(data) {
     pb$tick()
 
     result <- suppressWarnings(prep_raw(data, slice(data, i)))
+    # TODO: Store each result as a file to recover is the process ends early
+    # TODO: Restart the process from where it left
     if (any(result$category %in% useful_categories())) {
       valid[i] <- data$rowid[i]
     }

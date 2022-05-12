@@ -1,3 +1,6 @@
+library(dplyr, warn.conflicts = FALSE)
+library(tacApp)
+
 # WARNING: Git ignores data/. You may recover it from the published app's bundle
 
 if (!exists("valid_rowids", "package:tacApp")) {
