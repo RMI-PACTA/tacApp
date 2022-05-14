@@ -9,7 +9,7 @@ library(here)
 library(fs)
 load_all()
 
-find_valid_rowids <- function(data, file) {
+write_valid_rowids <- function(data, file) {
   abort_if_exists(file)
 
   rowids <- data$rowid
@@ -26,7 +26,7 @@ find_valid_rowids <- function(data, file) {
     }
   }
 
-  valid[valid > 0]
+  invisible(data)
 }
 
 abort_if_exists <- function(file) {
@@ -41,6 +41,6 @@ abort_if_exists <- function(file) {
 }
 
 file <- here("data-raw", "valid_rowids.txt")
-find_valid_rowids(tacAppPrivateData::full, file)
+write_valid_rowids(tacAppPrivateData::full, file)
 valid_rowids <- as.integer(readLines(file))
 use_data(valid_rowids, overwrite = TRUE)
