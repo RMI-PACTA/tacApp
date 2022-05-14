@@ -5,26 +5,42 @@
 library(dplyr, warn.conflicts = FALSE)
 library(progress)
 library(devtools)
+library(here)
+library(fs)
 load_all()
 
-find_valid_rowids <- function(data) {
-  valid <- integer(length(data$rowid))
+find_valid_rowids <- function(data, file) {
+  abort_if_exists(file)
 
-  pb <- progress_bar$new(total = length(data$rowid))
-  for (i in seq_along(data$rowid)) {
+  rowids <- data$rowid
+  valid <- integer(length(rowids))
+
+  pb <- progress_bar$new(total = length(rowids))
+  for (i in seq_along(rowids)) {
     pb$tick()
 
     result <- suppressWarnings(prep_raw(data, slice(data, i)))
-    # TODO: Store each result as a file to recover is the process ends early
-    # TODO: Restart the process from where it left
     if (any(result$category %in% useful_categories())) {
-      valid[i] <- data$rowid[i]
+      valid[i] <- rowids[i]
+      write(valid[i], file = file, append = TRUE)
     }
   }
 
   valid[valid > 0]
 }
 
-valid_rowids <- find_valid_rowids(tacAppPrivateData::full)
+abort_if_exists <- function(file) {
+  if (fs::file_exists(file)) {
+    abort(c(
+      glue("The file {file} must not exist."),
+      i = "Do you need to remove it?",
+      i = glue("fs::file_delete('{file}')")
+    ))
+  }
+  invisible(file)
+}
 
+file <- here("data-raw", "valid_rowids.txt")
+find_valid_rowids(tacAppPrivateData::full, file)
+valid_rowids <- as.integer(readLines(file))
 use_data(valid_rowids, overwrite = TRUE)
