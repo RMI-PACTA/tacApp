@@ -23,15 +23,14 @@ Imports:
     glue,
     here,
     magrittr,
-    pkgload,
     r2dii.plot,
     readr,
     rlang (>= 0.4.11),
     shiny,
     tibble,
-    tidyr,
-    vroom
+    tidyr
 Suggests: 
+    pkgload,
     roxygen2,
     testthat (>= 3.0.0),
     vdiffr
