@@ -1,7 +1,7 @@
 library(dplyr, warn.conflicts = FALSE)
-library(tacApp)
+devtools::load_all()
 
-# WARNING: Git ignores data/. You may recover it from the published app's bundle
+# WARNING: Git ignores data/
 
 if (!exists("valid_rowids", "package:tacApp")) {
   rlang::abort(c(
@@ -9,8 +9,6 @@ if (!exists("valid_rowids", "package:tacApp")) {
     i = "Do you need to run `source(here::here('data-raw/valid_rowids.R'))`?"
   ))
 }
-
-valid_rowids <- tacApp::valid_rowids
 
 valid <-   tacAppPrivateData::full %>%
   filter(rowid %in% valid_rowids) %>%
