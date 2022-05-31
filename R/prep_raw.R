@@ -6,19 +6,14 @@ prep_raw <- function(data, selected = data[8, ]) {
 
   out <- data %>%
     filter(.data$technology == .env$technology) %>%
-    filter(.data$target_company_id == selected$target_company_id)
-
-  if (nrow(out) == 0) {
-    out <- out %>%
-      filter(.data$subsidiary_company_id == selected$subsidiary_company_id)
-  }
+    filter(.data$company_id == selected$company_id)
 
   out %>%
     filter(.data$dual == 1) %>%
     prepare_data_waterfall(
       technology_filter = technology,
-      portfolio_ids = unique(data$subsidiary_company_id),
-      column_comp_id = "subsidiary_company_id",
+      portfolio_ids = unique(data$company_id),
+      column_comp_id = "company_id",
       column_before = column_before(),
       column_after = column_after(),
       categories_order = categories_order()
