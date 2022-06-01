@@ -39,7 +39,7 @@ A _real_ change is an increase or decrease in the production capacity. A
 _virtual_ change is a change not in the production capacity but in the ownership
 of the asset.
 
-## Contrubuting
+## Contributing
 
 ### Code organization
 

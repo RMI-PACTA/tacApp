@@ -1,11 +1,12 @@
 DegreesInvesting
-ORCID
-funder
+deployApp
 github
+gitignore
 https
 io
 magrittr
-repo
+rsconnect
+rstudio
 shinyapps
 tacAppPrivateData
 twodii
