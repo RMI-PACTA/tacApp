@@ -10,13 +10,13 @@ if (!exists("valid_rowids", "package:tacApp")) {
   ))
 }
 
-valid <-   tacAppPrivateData::full %>%
+valid <- tacAppPrivateData::full %>%
   filter(rowid %in% valid_rowids) %>%
-  arrange(target_company_name, technology)
+  arrange(company_name, technology)
 
 unique_rowids <- valid %>%
-  select(rowid, target_company_name, technology) %>%
-  distinct(target_company_name, technology, .keep_all = TRUE) %>%
+  select(rowid, company_name, technology) %>%
+  distinct(company_name, technology, .keep_all = TRUE) %>%
   pull(rowid)
 
 useful <- filter(valid, rowid %in% unique_rowids)

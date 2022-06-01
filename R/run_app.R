@@ -42,11 +42,11 @@ run_app <- function() {
 server <- function(input, output, session) {
   # Using server-side selectize for massively improved performance. See
   # ?selectizeInput and https://shiny.rstudio.com/articles/selectize.html
-  choices <- unique(useful$target_company_name)
+  choices <- unique(useful$company_name)
   updateSelectizeInput(session, "name", choices = choices, server = TRUE)
 
   company_name <- reactive({
-    filter(useful, .data$target_company_name == input$name)
+    filter(useful, .data$company_name == input$name)
   })
 
   observeEvent(company_name(), {

@@ -3,7 +3,7 @@ library(shiny)
 
 test_that("the first row has useful categories", {
   first_row <- slice(useful, 1)
-  name <- first_row$target_company_name
+  name <- first_row$company_name
   tech <- as.character(first_row$technology)
   apply <- TRUE
 
@@ -15,7 +15,7 @@ test_that("the first row has useful categories", {
 
 test_that("the first row has useful categories", {
   first_row <- slice(useful, 1)
-  name <- first_row$target_company_name
+  name <- first_row$company_name
   tech <- as.character(first_row$technology)
   apply <- TRUE
 
