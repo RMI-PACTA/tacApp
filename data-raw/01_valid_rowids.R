@@ -2,6 +2,7 @@
 # those who use the tacApp. This process helps expose not all the raw data but
 # only that which leads to valid results. Without this the user would often get
 # invalid results. Be patient. On my laptop this script completed in about 3h.
+
 library(dplyr, warn.conflicts = FALSE)
 library(devtools)
 library(here)
