@@ -15,7 +15,7 @@ run_app <- function() {
         "Select a company and technology",
         mainPanel(
           fluidRow(
-            selectizeInput("name", label = "Parent company", choices = NULL),
+            selectizeInput("name", label = "Company", choices = NULL),
             selectInput("tech", label = "Technology", choices = NULL),
             actionButton("apply", "Apply", class = "btn-lg btn-success")
           ),
