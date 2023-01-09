@@ -9,7 +9,6 @@ prep_raw <- function(data, selected = data[8, ]) {
     filter(.data$company_id == selected$company_id)
 
   out %>%
-    filter(.data$dual == 1) %>%
     prepare_data_waterfall(
       technology_filter = technology,
       portfolio_ids = unique(data$company_id),

@@ -36,13 +36,17 @@ categories_order <- function() {
     "before",
     "add",
     "buy",
-    "ramp up",
+    # "ramp up",
+    "ramp_up",
     "remove",
     "sell",
-    "ramp down",
+    # "ramp down",
+    "ramp_down",
     "untraceable",
-    "unidentified",
-    "too late",
+    # "unidentified",
+    "unidentifiable",
+    # "too late",
+    "too_late",
     "after"
   )
 }
