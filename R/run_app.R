@@ -16,6 +16,7 @@ run_app <- function() {
         mainPanel(
           fluidRow(
             selectizeInput("name", label = "Company", choices = NULL),
+            selectInput("sector", label = "Sector", choices = NULL),
             selectInput("tech", label = "Technology", choices = NULL),
             actionButton("apply", "Apply", class = "btn-lg btn-success")
           ),
@@ -50,8 +51,10 @@ server <- function(input, output, session) {
   })
 
   observeEvent(company_name(), {
-    choices <- unique(company_name()$technology)
-    updateSelectInput(inputId = "tech", choices = choices)
+    choices_sector <- unique(company_name()$sector)
+    choices_tech <- unique(company_name()$technology)
+    updateSelectInput(inputId = "sector", choices = choices_sector)
+    updateSelectInput(inputId = "tech", choices = choices_tech)
   })
 
   selected <- eventReactive(input$apply, {
