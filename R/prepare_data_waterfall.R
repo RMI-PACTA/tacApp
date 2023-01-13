@@ -6,11 +6,6 @@ prepare_data_waterfall <- function(data,
                                    column_after,
                                    column_weights = NULL,
                                    categories_order = NULL) {
-  # categories_order <- categories_order %||%
-  #   c(
-  #     "before", "add", "buy", "ramp up", "remove", "sell", "ramp down",
-  #     "untraceable", "unidentified", "after"
-  #   )
   categories_order <- categories_order %||%
     c(
       "before", "add", "buy", "ramp_up", "remove", "sell", "ramp_down",
