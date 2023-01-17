@@ -22,7 +22,7 @@ prepare_data_waterfall <- function(data,
     filter(.data[[column_comp_id]] %in% portfolio_ids) %>%
     arrange(factor(.data$category, levels = categories_order)) %>%
     filter(.data$category != "continue") %>%
-    mutate(id = seq_along(.data$value) + 1) %>%
+    mutate(id = seq_along(.data$value)) %>%
     mutate(
       type =
         factor(
@@ -40,7 +40,7 @@ prepare_data_waterfall <- function(data,
   data_portfolio$end <- c(head(data_portfolio$end, -1), 0)
 
   data_portfolio$start <- c(0, head(data_portfolio$end, -1))
-  data_portfolio <- data_portfolio[, c(3, 1, 4, 6, 5, 2)]
+  data_portfolio <- data_portfolio[, c("id", "category", "type", "start", "end", "value")]
 
   data_portfolio
 }
