@@ -37,6 +37,7 @@ category_value <- function(data, category) {
 #' format_summary_names(nms)
 #' @noRd
 format_summary_names <- function(nms) {
+  # TODO: pass sector and technology to provide appropriate units
   nms <- gsub("_", " ", nms)
   nms <- tools::toTitleCase(nms)
   # styler: off
