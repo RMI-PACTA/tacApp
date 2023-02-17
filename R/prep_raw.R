@@ -18,8 +18,8 @@ prep_raw <- function(data, selected = data[8, ]) {
       column_before = column_before(),
       column_after = column_after(),
       categories_order = categories_order()
-    ) %>%
-    tibble::add_column(technology = .env$technology, .before = 1)
+    ) #%>%
+    # tibble::add_column(technology = .env$technology, .before = 1)
 }
 
 # TODO: still needed?

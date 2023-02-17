@@ -30,7 +30,7 @@ prepare_data_waterfall <- function(data,
           levels = c("total", "real", "virtual", "unknown")
         )
     ) %>%
-    select(.data$category, .data$value, .data$id, .data$type)
+    select(c("sector", "technology", "production_unit", "category", "value", "id", "type"))
 
   data_portfolio <- data_portfolio %>%
     arrange(factor(.data$category, levels = categories_order)) %>%
@@ -40,7 +40,7 @@ prepare_data_waterfall <- function(data,
   data_portfolio$end <- c(head(data_portfolio$end, -1), 0)
 
   data_portfolio$start <- c(0, head(data_portfolio$end, -1))
-  data_portfolio <- data_portfolio[, c("id", "category", "type", "start", "end", "value")]
+  data_portfolio <- data_portfolio[, c("sector", "technology", "production_unit", "id", "category", "type", "start", "end", "value")]
 
   data_portfolio
 }
