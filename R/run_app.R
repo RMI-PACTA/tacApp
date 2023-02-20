@@ -77,7 +77,7 @@ server <- function(input, output, session) {
   output$summary <- renderTable({
     out <- summarize_change(result())
     out <- round_percent_columns(out)
-    names(out) <- format_summary_names(names(out))
+    names(out) <- format_summary_names(nms = names(out), sector = unique(result()$sector))
     out
   })
 

@@ -35,7 +35,10 @@ prepare_data_waterfall <- function(data,
 
   data_portfolio <- data_portfolio %>%
     arrange(factor(.data$category, levels = categories_order)) %>%
-    mutate(value = .data$value / 10^3)
+    mutate(
+      value = if_else(.data$sector == "Power", .data$value / 10^3, .data$value),
+      unit = if_else(.data$sector == "Power", "GW", .data$unit)
+    )
 
   data_portfolio$end <- cumsum(data_portfolio$value)
   data_portfolio$end <- c(head(data_portfolio$end, -1), 0)
