@@ -6,4 +6,5 @@ data-raw/result
 data/*
 # rowids are not private
 !data/valid_rowids.rda
-
+# NEVER PUSH THE CREDENTIALS!
+credentials.R
