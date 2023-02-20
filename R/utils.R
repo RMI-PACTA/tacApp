@@ -24,7 +24,7 @@ useful_categories <- function() {
 }
 
 real_categories <- function() {
-  c("add", "remove", "ramp up", "ramp down")
+  c("add", "remove", "ramp_up", "ramp_down")
 }
 
 virtual_categories <- function() {
@@ -36,13 +36,13 @@ categories_order <- function() {
     "before",
     "add",
     "buy",
-    "ramp up",
+    "ramp_up",
     "remove",
     "sell",
-    "ramp down",
+    "ramp_down",
     "untraceable",
-    "unidentified",
-    "too late",
+    "unidentifiable",
+    "too_late",
     "after"
   )
 }

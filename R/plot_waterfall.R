@@ -19,6 +19,7 @@ plot_waterfall <- function(data, type_order = NULL, type_colours = NULL) {
     theme_2dii() +
     theme(axis.line.x = element_blank()) +
     theme(axis.ticks.x = element_blank()) +
+    theme(axis.text.x = element_text(vjust = 0.5)) +
     theme(axis.title.y.left = element_text(margin = unit(c(0, 0.4, 0, 0.4), "cm"))) +
     theme(axis.title.y.right = element_text(margin = unit(c(0, 0.4, 0, 0.4), "cm"))) +
     theme(legend.position = "bottom")

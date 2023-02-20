@@ -15,8 +15,8 @@ valid <- tacAppPrivateData::full %>%
   arrange(company_name, technology)
 
 unique_rowids <- valid %>%
-  select(rowid, company_name, technology) %>%
-  distinct(company_name, technology, .keep_all = TRUE) %>%
+  select(rowid, company_name, sector, technology) %>%
+  distinct(company_name, sector, technology, .keep_all = TRUE) %>%
   pull(rowid)
 
 useful <- filter(valid, rowid %in% unique_rowids)
