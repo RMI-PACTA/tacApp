@@ -33,18 +33,22 @@ category_value <- function(data, category) {
 #'   paste0(x, "_change")
 #' )
 #'
+#' sector <- "Power"
+#'
 #' nms
-#' format_summary_names(nms)
+#' format_summary_names(nms, sector)
 #' @noRd
-format_summary_names <- function(nms) {
+format_summary_names <- function(nms, sector) {
   # TODO: pass sector and technology to provide appropriate units
   nms <- gsub("_", " ", nms)
   nms <- tools::toTitleCase(nms)
   # styler: off
   nms <- case_when(
     grepl("Percent", nms) ~ add_unit(nms, "%"),
-    grepl("Change", nms)  ~ add_unit(nms, "GW"),
-    TRUE                  ~ nms
+    grepl("Change", nms) & sector == "Power" ~ add_unit(nms, "GW"),
+    grepl("Change", nms) & sector == "Coal" ~ add_unit(nms, "tonnes"),
+    grepl("Change", nms) & sector == "Oil&Gas" ~ add_unit(nms, "GJ"),
+    TRUE ~ nms
   )
   # styler: on
   nms <- gsub("Change ", "", nms)
