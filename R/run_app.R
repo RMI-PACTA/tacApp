@@ -9,9 +9,6 @@
 #' }
 run_app <- function() {
   ui <- fluidPage(
-    # passward
-    shinyalert::useShinyalert(),
-
     #content
     tabsetPanel(
       id = "tabs",
